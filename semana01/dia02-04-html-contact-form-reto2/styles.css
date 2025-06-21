@@ -85,6 +85,10 @@ label textarea {
   border: 1px solid hsl(186, 15%, 59%);
 }
 
+label textarea {
+  resize: none;
+}
+
 .row {
   display: grid;
 
