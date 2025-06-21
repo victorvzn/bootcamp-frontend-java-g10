@@ -61,7 +61,7 @@ h1 {
 }
 
 label {
-  border: 1px solid red;
+  /* border: 1px solid red; */
 
   display: block;
   margin-bottom: 16px;
@@ -70,7 +70,27 @@ label {
 label input[type=text],
 label input[type=email],
 label textarea {
-  display: flex;
+  display: block;
 
   margin-top: 8px;
+
+  width: 100%;
+  box-sizing: border-box;
+
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid hsl(186, 15%, 59%);
+}
+
+.row {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 16px;
+}
+
+input[type=submit] {
+  /* TODO: Terminar los estilos del botón */
+  color: red;
 }
