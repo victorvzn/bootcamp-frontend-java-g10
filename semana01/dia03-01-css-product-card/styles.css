@@ -18,7 +18,7 @@ body {
 }
 
 main {
-  background-color: white;
+  background-color: red;
 
   width: 650px;
   height: 400px;
@@ -27,7 +27,7 @@ main {
 
   border-radius: 14px;
 
-  /* ??? */
+  overflow: hidden;
 }
 
 .photo {
@@ -35,7 +35,9 @@ main {
 
   width: 350px;
 
-  
+  background-image: url(./images/image-product-desktop.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .content {
