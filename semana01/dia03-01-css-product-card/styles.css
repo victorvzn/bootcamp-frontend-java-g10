@@ -33,7 +33,7 @@ main {
 .photo {
   background-color: blue;
 
-  width: 350px;
+  width: 300px;
 
   background-image: url(./images/image-product-desktop.jpg);
   background-size: cover;
@@ -42,5 +42,5 @@ main {
 
 .content {
   background-color: green;
-  width: 300px;
+  width: 350px;
 }
