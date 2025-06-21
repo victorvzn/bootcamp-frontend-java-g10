@@ -7,4 +7,38 @@
 
 body {
   font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+
+  background-color: hsl(30, 38%, 92%);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+}
+
+main {
+  background-color: white;
+
+  width: 650px;
+  height: 400px;
+
+  display: flex;
+
+  border-radius: 14px;
+
+  /* ??? */
+}
+
+.photo {
+  background-color: blue;
+
+  width: 350px;
+
+  
+}
+
+.content {
+  background-color: green;
+  width: 300px;
 }
