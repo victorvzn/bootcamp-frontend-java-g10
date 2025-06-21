@@ -8,29 +8,55 @@
 </head>
 <body>
   <!-- TODO: Maquetar el html de esta página -->
-  Contact Us
 
-  First Name
-  This field is required
+  <main class="contact-form">
+    <h1>Contact Us</h1>
 
-  Last Name
-  This field is required
+    <form>
+      <div class="row">
+        <label>
+          First Name <span class="required">*</span>
+          <input type="text" name="first_name" />
+        </label>
+        
+        <label>
+          Last Name <span class="required">*</span>
+          <input type="text" name="last_name" />
+        </label>
+      </div>
 
-  Email Address
-  Please enter a valid email address
-  This field is required
+      <label>
+        Email Address <span class="required">*</span>
+        <input type="email" name="email" />
+      </label>
 
-  Query Type
-  General Enquiry
-  Support Request
-  Please select a query type
+      <div>
+        Query Type <span class="required">*</span>
 
-  Message
-  This field is required
+        <div class="row">
+          <label class="query-type">
+            <input type="radio" name="query_type">
+            General Enquiry
+          </label>
+          <label class="query-type">
+            <input type="radio" name="query_type">
+            Support Request
+          </label>
+        </div>
+      </div>
 
-  I consent to being contacted by the team
-  To submit this form, please consent to being contacted
+      <label>
+        Message <span class="required">*</span>
+        <textarea rows="10" name="message"></textarea>
+      </label>
 
-  Submit
+      <label>
+        <input type="checkbox" name="i_consent">
+        I consent to being contacted by the team <span class="required">*</span>
+      </label>
+
+      <input type="submit" value="Enviar" />
+    </form>
+  </main>
 </body>
 </html>
