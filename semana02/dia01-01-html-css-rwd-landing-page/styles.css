@@ -39,6 +39,8 @@
   --neutral-white: hsl(0, 0%, 100%);
 }
 
+/* GENERAL */
+
 html {
   font-size: var(--font-size); /* 14px */
 }
@@ -56,6 +58,14 @@ a {
 
   text-decoration: none;
 }
+
+img {
+  max-width: 100%;
+
+  height: auto;
+}
+
+/* UTILS */
 
 .hidden {
   display: none;
