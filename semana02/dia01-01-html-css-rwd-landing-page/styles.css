@@ -22,7 +22,7 @@
   /* FONTS */
   --font-primary: "Raleway", sans-serif;
   --font-secondary: "Open Sans", sans-serif;
-  --font-size: 16px;
+  --font-size: 14px;
   --font-weight-regular: 400;
   --font-weight-bold: 700;
 
@@ -94,3 +94,24 @@ a {
 
 /* HERO SECTION */
 
+/* TODO: Usen los estilos apropiados para las clases .hero */
+
+.hero {
+
+}
+
+.hero__image {
+
+}
+
+.hero__title {
+
+}
+
+.hero__content {
+
+}
+
+.hero__button {
+
+}
