@@ -111,7 +111,7 @@ img {
 /* TODO: Usen los estilos apropiados para las clases .hero */
 
 .hero {
-  border: 1px solid red;
+  /* border: 1px solid red; */
 
   display: flex;
   flex-direction: column;
@@ -140,5 +140,26 @@ img {
 }
 
 .hero__button {
-  
+  font-weight: var(--font-weight-bold);
+
+  border: none;
+
+  padding: 1rem 1.5rem;
+  border-radius: 2rem; /* 2 x 14px = 28px */
+
+  min-width: 200px;
+  color: var(--neutral-white);
+  background: linear-gradient(
+    90deg,
+    var(--accent-teal-200) 0%,
+    var(--accent-cyan-500) 100%
+  );
+
+  cursor: pointer;
+
+  transition: background ease .3s;
+}
+
+.hero__button:hover {
+  background: var(--accent-cyan-500);
 }
