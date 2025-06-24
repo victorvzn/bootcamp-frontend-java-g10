@@ -15,7 +15,7 @@
   /* FONTS */
   --font-primary: "Raleway", sans-serif;
   --font-secondary: "Open Sans", sans-serif;
-  --font-size: 14px;
+  --font-size: 16px;
   --font-weight-regular: 400;
   --font-weight-bold: 700;
 
@@ -33,7 +33,7 @@
 }
 
 html {
-  font-size: var(--font-size);
+  font-size: var(--font-size); /* 14px */
 }
 
 body {
@@ -41,7 +41,7 @@ body {
 
   background-color: var(--primary-navy-850);
 
-  color: var(--neutral-white)
+  color: var(--neutral-white);
 }
 
 a {
@@ -57,12 +57,12 @@ a {
 /* HEADER SECTION */
 
 .header {
-  /* border: 2px solid red; */
+  border: 1px solid red;
 
   /* flexbox */
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  margin-top: 4rem; /* 4 x 16px */
+  margin-top: 4rem; /* 4 x 14px */
 }
