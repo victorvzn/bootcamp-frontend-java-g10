@@ -10,7 +10,7 @@
 /* VARIABLES o CONSTANTES o CUSTOM PROPERTIES */
 
 :root { /* pseudo-class */
-  --fondo: orange;
+  --fondo: orange; /* background-color: var(--fondo); */
 }
 
 body {
