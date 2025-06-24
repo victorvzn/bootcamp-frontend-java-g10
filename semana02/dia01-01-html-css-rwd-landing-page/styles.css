@@ -7,6 +7,13 @@
   font-family: "Open Sans", sans-serif;
 */
 
+/*
+  576px -> pantallas pequeñas (celulares)
+  768px -> pantallas pequeñas (tablets y celulares)
+  992px -> pantallas medianas (Desktop)
+  1200px -> pantallas grandes (Desktops, TVs)
+*/
+
 /* VARIABLES o CONSTANTES o CUSTOM PROPERTIES */
 
 :root { /* pseudo-class */
@@ -54,6 +61,13 @@ a {
   display: none;
 }
 
+.wrapper {
+  /* width: 1440px; */
+  width: min(100%, 1440px);
+
+  margin: 0 auto;
+}
+
 /* HEADER SECTION */
 
 .header {
@@ -64,5 +78,9 @@ a {
   justify-content: space-between;
   align-items: center;
 
-  margin-top: 4rem; /* 4 x 14px */
+  margin-top: 4rem;
+
+  /* 4rem = 4 * 14px = 56px */
+  /* 1rem = tamaño de la letra principal (14px) */
+  /* 1em  = tamaño de la letra de su contenedor más próximo (14px) */
 }
