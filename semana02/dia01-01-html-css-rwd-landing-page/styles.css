@@ -78,6 +78,10 @@ img {
   margin: 0 auto;
 }
 
+.wrapper-720 {
+  width: min(100% - 2rem, 700px);
+}
+
 /* HEADER SECTION */
 
 .header {
@@ -107,21 +111,34 @@ img {
 /* TODO: Usen los estilos apropiados para las clases .hero */
 
 .hero {
+  border: 1px solid red;
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+
+  text-align: center;
+
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
-.hero__image {
-
-}
+.hero__image {}
 
 .hero__title {
-
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: 2.5rem; /* 2.5 x 14px = 35px */
+  line-height: 1;
 }
 
 .hero__content {
+  line-height: 1.5;
 
+  padding: 0 7rem;
 }
 
 .hero__button {
-
+  
 }
