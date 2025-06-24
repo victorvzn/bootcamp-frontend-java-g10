@@ -11,6 +11,26 @@
 
 :root { /* pseudo-class */
   --fondo: orange; /* background-color: var(--fondo); */
+
+  /* FONTS */
+  --font-primary: "Raleway", sans-serif;
+  --font-secondary: "Open Sans", sans-serif;
+  --font-size: 14px;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  /* COLORS */
+
+  --primary-navy-850: hsl(217, 28%, 15%);
+  --primary-navy-900: hsl(218, 28%, 13%);
+  --primary-navy-950: hsl(216, 53%, 9%);
+  --primary-navy-800: hsl(219, 30%, 18%);
+
+  --accent-teal-200: hsl(176, 68%, 64%);
+  --accent-cyan-500: hsl(198, 60%, 50%);
+  --accent-red-500: hsl(0, 100%, 63%);
+
+  --neutral-white: hsl(0, 0%, 100%);
 }
 
 body {
