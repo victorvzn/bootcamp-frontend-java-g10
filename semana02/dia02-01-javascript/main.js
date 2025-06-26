@@ -322,3 +322,46 @@ if (edadPersona >= 18) {
 // 4. Retornar true si un numero es primo sino devolver false
 //    Pista: un numero primo es divisible por sí mismo y por 1
 // 5. Devolver un valor que se incremente de dos en dos y devuelva los menores a 10
+
+
+// FUNCIONES (Son bloques de código que podemos reutlizar)
+
+// Declaración
+function nombreDeLaFuncion() {
+  // Cuerpo de la función y aquí va la lógica a ejecutar y reutilizar
+}
+
+// Ejecutar, aquí estamos llamando a la función
+nombreDeLaFuncion()
+nombreDeLaFuncion()
+
+// Funciones sin parámetros
+
+function imprimirMiNombre() {
+  console.log('Hola soy Victor')
+  console.log('Y soy Frontend')
+}
+
+imprimirMiNombre()
+imprimirMiNombre()
+
+// Funciones con parámetros y valores por defecto
+
+function imprimirUnNombre(nombre = 'Anónimo') {
+  // if (nombre === undefined) {
+  //   nombre = 'Anónimo'
+  // }
+
+  console.log('Hola soy ' + nombre)
+}
+
+imprimirUnNombre()
+imprimirUnNombre('Victor')
+
+function imprimirNombreYApellido(nombre, apellido, edad) {
+  // console.log('Hola soy ' + nombre + ' ' + apellido + ' y tengo ' + edad + ' años.')
+  console.log(`Hola soy ${nombre} ${apellido} y tengo ${edad} años`)
+}
+
+imprimirNombreYApellido() // Hola soy undefined undefined y tengo undefined años.
+imprimirNombreYApellido('Victor', 'Villazón', '38')
