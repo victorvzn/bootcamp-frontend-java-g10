@@ -137,13 +137,13 @@ console.log(1 != '1') // false ❓
 
 // Operador de igualdad y desigualdad estricta (===) (ES RECOMDABLE USARLO CASI SIEMPRE)
 // Devuelven un valor booleano (true o false)
-// Este oprador si toma en cuenta el tipo de datos y sus valores al comparar
+// Este operador si toma en cuenta el tipo de datos y sus valores al comparar
 
 console.log(1 === 1) // true
 console.log(1 === '1') // false ✅
 console.log(1 !== '1') // true ✅
 
-// OPRARDORES DE COMPARACIÓN, siempre devuelven un booleano
+// OPERARDORES DE COMPARACIÓN, siempre devuelven un booleano
 
 console.log(8 > 5)
 console.log(5 < 1)
@@ -159,10 +159,21 @@ console.log(!false) // NEGACIÓN
 // OPERADOR DE CADENA (CONCATENACIÓN)
 
 const saludo = 'Hola, '
-const nombreCompleto = 'Victor' + ' ' + 'Villazón'
+const nombreCompleto = 'Victor' + '@' + 'Villazón'
 const miEdad = 38
 
 const imprimirSaludo = saludo + nombreCompleto + ". Tengo " + miEdad + ' años'
 
 console.log(nombreCompleto)
 console.log(imprimirSaludo)
+
+// EJERCICIOS
+
+// 1. Retorna true si dos strings tienen la misma longitud sino devolver false
+const cadena1 = 'codigo'
+const cadena2 = 'cadaga'
+
+console.log(cadena1.length)
+console.log(cadena2.length)
+
+console.log(cadena1.length === cadena2.length) // true
