@@ -460,3 +460,66 @@ const otroSaludoEnMayusculas = (nombre='Anónimo') => {
 console.log(otroSaludoEnMayusculas())
 console.log(otroSaludoEnMayusculas('Humberto'))
 
+// PARÁMETROS REST (operador rest -> ...)
+
+const numeros = [4, 6]
+
+function miSuma(n1, n2) {
+  return n1 + n2
+}
+
+console.log(miSuma(4, 6))
+console.log(miSuma(...numeros))
+
+const listaDeNumeros = [6, 33, 998, 1, -66, 453]
+
+console.log(
+  Math.max(25, 8, 65),
+  Math.max(...listaDeNumeros)
+)
+
+console.log(
+  Math.min(25, 8, 65),
+  Math.min(...listaDeNumeros)
+)
+
+// SPREAD OPERATOR (...)
+// Sirve para expandir un arreglo, llamas a funciones, incluso objetos.
+
+const frutas = ['Manzanas', 'Naranjas', 'Plátanos', 'Sandías', 'Duraznos']
+
+const verduras = ['Papas', 'Cebollas']
+
+const frutasYVerduras = [...verduras, ...frutas]
+
+console.log(frutas)
+console.log(verduras)
+console.log(frutasYVerduras)
+
+const persona = {
+  nombre: 'Victor',
+  apellido: 'Villazón',
+  edad: 38,
+  color: 'azul'
+}
+
+const stack = {
+  javascript: 'React.js',
+  python: 'Django',
+  nodejs: 'Express.js',
+  color: 'rosado'
+}
+
+const personaYSuStack = {
+  ...persona,
+  ...stack
+}
+
+console.log(personaYSuStack)
+
+const personaYSuStack2 = {
+  persona,
+  stack
+}
+
+console.log(personaYSuStack2)
