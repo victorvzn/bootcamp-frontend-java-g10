@@ -163,3 +163,36 @@ img {
 .hero__button:hover {
   background: var(--accent-cyan-500);
 }
+
+/* FEATURES SECTION */
+
+.features {
+  /* border: 1px solid red; */
+
+  background-color: var(--primary-navy-900);
+
+  display: grid;
+  grid-template-columns: 340px;
+  justify-content: center;
+  gap: 5rem;
+}
+
+/*
+TAMAÑOS DE PANTALLAS: 
+
+576px -> pantallas pequeñas (celulares)
+768px -> pantallas pequeñas (tablets y celulares)
+992px -> pantallas medianas (Desktop)
+1200px -> pantallas grandes (Desktops, TVs)
+*/
+
+@media(min-width: 768px) {
+  /* La siguiente regla se aplica solo para dispositivos mayores a 768px (Tablets, Desktops, TVs) */
+  .features {
+    grid-template-columns: 340px 340px;
+  }
+}
+
+.feature {
+  border: 1px solid yellow;
+}
