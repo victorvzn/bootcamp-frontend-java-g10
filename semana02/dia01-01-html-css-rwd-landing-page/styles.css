@@ -41,6 +41,10 @@
 
 /* GENERAL */
 
+* {
+  margin: 0; /* ⚠ Quitamos el margen por defecto que añade el navegador a todos las etiquetas de la página */
+}
+
 html {
   font-size: var(--font-size); /* 14px */
 }
@@ -51,6 +55,8 @@ body {
   background-color: var(--primary-navy-850);
 
   color: var(--neutral-white);
+
+  margin: 0; /* ⚠ Quitamos el margen por defecto que añade el navegador */
 }
 
 a {
@@ -122,6 +128,17 @@ img {
 
   padding-top: 3rem;
   padding-bottom: 3rem;
+
+  background-image: url(./images/bg-curvy-mobile.svg);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    background-image: url(./images/bg-curvy-desktop.svg);
+  }
 }
 
 .hero__image {}
@@ -175,6 +192,8 @@ img {
   grid-template-columns: 340px;
   justify-content: center;
   gap: 5rem;
+
+  padding-top: 5rem;
 }
 
 /*
@@ -194,5 +213,20 @@ TAMAÑOS DE PANTALLAS:
 }
 
 .feature {
-  border: 1px solid yellow;
+  /* border: 1px solid yellow; */
+
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.feature__title {
+  font-family: var(--font-primary);
+}
+
+.feature__content {
+  font-family: var(--font-secondary); /* Está por defecto en la fuente dentro del body */
 }
