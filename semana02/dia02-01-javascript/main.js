@@ -109,3 +109,60 @@ edad2 = 22
 console.log(edad2)
 console.log(typeof edad2)
 
+// OPERADORES MATEMÁTICOS
+
+console.log(1 + 2)
+console.log(3 - 2)
+console.log(2 * 2)
+console.log(1 / 2)
+console.log(1 % 2) // Residuo
+console.log(2 ** 3) // Dos elavado al cubo
+console.log(Math.pow(2, 3)) // Hace lo mismo que 2 ** 3
+
+// OPERADORES DE ASIGNACIÓN
+
+const genero = 'femenino'
+
+console.log(genero + '*')
+
+// OPERADORES DE COMPARACIÓN
+
+// Operador de igualdad y desigualdad no estricta (==)
+// Devuelve un valor booleano (true o false)
+// Este operador no toma en cuenta el tipo de datos al comparar sino solo sus valores
+
+console.log(1 == 1) // true
+console.log(1 == '1') // true ❓
+console.log(1 != '1') // false ❓
+
+// Operador de igualdad y desigualdad estricta (===) (ES RECOMDABLE USARLO CASI SIEMPRE)
+// Devuelven un valor booleano (true o false)
+// Este oprador si toma en cuenta el tipo de datos y sus valores al comparar
+
+console.log(1 === 1) // true
+console.log(1 === '1') // false ✅
+console.log(1 !== '1') // true ✅
+
+// OPRARDORES DE COMPARACIÓN, siempre devuelven un booleano
+
+console.log(8 > 5)
+console.log(5 < 1)
+console.log(8 >= 5)
+console.log(8 <= 5)
+
+// OPERADORES LÓGICOS (AND, OR, NEGACIÓN)
+
+console.log(true && false) // AND
+console.log(true || false) // OR
+console.log(!false) // NEGACIÓN
+
+// OPERADOR DE CADENA (CONCATENACIÓN)
+
+const saludo = 'Hola, '
+const nombreCompleto = 'Victor' + ' ' + 'Villazón'
+const miEdad = 38
+
+const imprimirSaludo = saludo + nombreCompleto + ". Tengo " + miEdad + ' años'
+
+console.log(nombreCompleto)
+console.log(imprimirSaludo)
