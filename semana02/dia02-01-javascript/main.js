@@ -420,3 +420,43 @@ console.log(avatar.concat('victorvzn')) // 'Hola @mevictorvzn'
 console.log(avatar.replace('@me', 'Victor')) // 'Hola Victor'
 console.log(avatar.slice(0, 5)) // Retorna una parte de la cadena tomando la posición/índice de inicio y final en los parámetros
 console.log(welcome.indexOf('script')) // 10
+
+// ARROW FUNCTIONS (Funciones flecha) =>
+
+// function nombreDeLaFuncion(parametro1, parametro2) {
+//   console.log('Hola a todos')
+// }
+
+// Funciones sin parámetros en un línea
+
+const imprimiendoSaludo = () => console.log('Hola a todos nuevamente!')
+
+imprimiendoSaludo()
+
+// Funciones con parámetros en un línea
+
+const suma = (numero1, numero2) => numero1 + numero2
+
+console.log(suma(2, 5))
+
+// Funciones con parámetros y retorno en múltiples líneas
+
+const saludoEnMayusculas = (nombre) => {
+  const nombreEnMayusculas = nombre.toUpperCase()
+
+  return 'Hola ' + nombreEnMayusculas + '!'
+}
+
+console.log(saludoEnMayusculas('Humberto'))
+
+// Funciones con parámetros por defecto con retorno y en múltiples líneas
+
+const otroSaludoEnMayusculas = (nombre='Anónimo') => {
+  const nombreEnMayusculas = nombre.toUpperCase()
+
+  return 'Hola ' + nombreEnMayusculas + '!'
+}
+
+console.log(otroSaludoEnMayusculas())
+console.log(otroSaludoEnMayusculas('Humberto'))
+
