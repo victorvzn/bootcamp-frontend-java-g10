@@ -29,3 +29,27 @@ listaDeNombres[0] = 9999
 console.log(listaDeNombres)
 
 listaConFunciones[0]()
+
+// Insertar nuevos elementos al final del arreglo
+
+listaDeNombres.push('Javascript')
+
+console.log(listaDeNombres)
+
+// Remover elementos del final del arreglo
+
+listaDeNombres.pop()
+
+console.log(listaDeNombres)
+
+// Insertar un elemento en una posición determinada
+
+listaDeNombres.splice(1, 0, 'HTML')
+
+console.log(listaDeNombres)
+
+// Eliminar un elemento
+
+listaDeNombres.splice(2, 1)
+
+console.log(listaDeNombres)
