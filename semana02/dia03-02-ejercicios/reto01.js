@@ -17,6 +17,7 @@ function contarOvejas(ovejas) {
 
 const ovejasFiltradas = contarOvejas(ovejas)
 
+console.log('RETO 1')
 console.log(ovejasFiltradas)
 
 // RESULTADO:
