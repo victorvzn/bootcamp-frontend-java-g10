@@ -153,3 +153,61 @@ for (let i = 0; i < numeros.length; i++) {
 }
 
 console.log(acumulador)
+
+// OBJETOS
+
+/*
+  {
+    KEY 1: VALUE1,
+    KEY2: VALUE1
+  }
+*/
+
+const miObjetoVacio = {}
+
+const miObjeto = {
+  nombre: 'Victor',
+  apellido: 'Villazón',
+  colorFavorito: 'azúl',
+  'mi edad': 37,
+  coloresFavoritos: ['rosado', 'rojo', 'azúl'],
+  cursos: [
+    {
+      nombre: 'Matemática',
+      nota: 18
+    },
+    {
+      nombre: 'Algoritmos',
+      nota: 13
+    }
+  ],
+  devolverCursosAprobados: function () {
+    return this.cursos.filter(function (curso) {
+      return curso.nota > 13
+    })
+  }
+}
+
+console.log(miObjetoVacio)
+console.log(miObjeto)
+
+// LEER LOS CAMPOS DE UN OBETO (notación de punto y de corchete)
+
+console.log(miObjeto.nombre) // Victor
+console.log(miObjeto.apellido) // Villazón
+console.log(miObjeto.edad) // undefined
+
+// console.log(miObjeto.mi edad) // BAD ❌ - Uncaught SyntaxError: missing ) after argument list 
+console.log(miObjeto['mi edad'])  // OK ✅
+
+console.log(miObjeto.coloresFavoritos) // ['rosado', 'rojo', 'azúl']
+console.log(miObjeto.coloresFavoritos[2]) // azúl
+
+console.log(miObjeto.cursos)
+console.log(miObjeto.cursos[1])
+console.log(miObjeto.cursos[1].nombre)
+console.log(miObjeto.cursos[1].nota)
+console.log(miObjeto.cursos[1]['nota'])
+
+console.log(miObjeto.devolverCursosAprobados)
+console.log(miObjeto.devolverCursosAprobados())
