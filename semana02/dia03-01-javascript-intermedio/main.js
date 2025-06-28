@@ -44,8 +44,10 @@ console.log(listaDeNombres)
 
 // Insertar un elemento en una posición determinada
 
-listaDeNombres.splice(1, 0, 'HTML')
+const arr = [...listaDeNombres]
 
+console.log(arr.splice(1, 0, 'HTML'))
+console.log(arr)
 console.log(listaDeNombres)
 
 // Eliminar un elemento
@@ -53,3 +55,12 @@ console.log(listaDeNombres)
 listaDeNombres.splice(2, 1)
 
 console.log(listaDeNombres)
+
+// Obtener el tamaño de nuestro arreglo
+
+console.log(listaDeNombres.length)
+console.log('bienvenido'.length)
+
+// Otras funciones: slice (Investiguen)
+
+// https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
