@@ -19,5 +19,6 @@ const ovejasFiltradas = contarOvejas(ovejas)
 
 console.log(ovejasFiltradas)
 
+// RESULTADO:
 // [{ name: 'Navidad', color: 'rojo' },
 //  { name: 'Ki Na Ma', color: 'rojo' }]
