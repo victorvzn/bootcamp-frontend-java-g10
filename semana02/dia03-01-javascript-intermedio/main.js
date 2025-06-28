@@ -70,3 +70,44 @@ console.log('bienvenido'.length)
 console.log('frutas'.split(''))
 console.log('frutas'.split('').join(''))
 
+
+// MÉTODOS DE ARREGLOS (includes, map, filter, reduce, every, some, flat, flatMap, etc)
+
+// Método INCLUDES, nos indica si el valor que se pasa como parámetro se encuentra en el arreglo y siempre devuelve un boolean(true o false)
+
+const languages = ['javascript', 'php', 'python', 'C', 'c++', 'java', 'python']
+
+console.log(languages.includes('java')) // true
+console.log(languages.includes('cobol')) // false
+
+// Método FILTER, nos ayuda a ubicar un elemento dentro de un arreglo usando una condición y devuelve un arreglo con los resultados
+
+const resultado = languages.filter(
+  function (language, index, arregloOriginal) {
+    // return language === 'java'
+    // return language === 'python'
+    return language.toLowerCase().includes('c')
+  }
+)
+
+console.log(resultado)
+console.log(languages)
+
+// Método MAP, devuelve un arreglo modifica pasandole una función
+
+const nombresConTitulo = languages.map(
+  function (language) {
+    // return 'Hola'
+    return language + '*'
+  }
+)
+
+console.log(nombresConTitulo)
+console.log(languages)
+
+// Método SORT, nos ayuda a ordenar un arreglo de elementos. Muta el arreglo original
+
+const ordenandoLanguages = [...languages].sort()
+
+console.log(ordenandoLanguages)
+console.log(languages)
