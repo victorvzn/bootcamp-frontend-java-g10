@@ -7,6 +7,7 @@
 const arregloVacio = []
 const listaDeNombres = ['Victor', 'Liliana', 'Marcial', 'Diego']
 const listaDeValores = [1, 2, 3, 'Victor', 'Villazón', true, null, undefined, [6, 7, 8]]
+const listaConFunciones = [() => { console.log('Hola fn')}]
 
 console.log(arregloVacio)
 console.log(listaDeNombres)
@@ -18,6 +19,7 @@ console.log(listaDeValores[0]) // 1
 console.log(listaDeValores[4]) // Villazón
 console.log(listaDeValores[5]) // true
 console.log(listaDeValores[100]) // undefined
+console.log(listaDeValores[8][1]) // 7
 
 // Escritura en un arreglo
 
@@ -25,3 +27,5 @@ listaDeNombres[2] = 'Paul'
 listaDeNombres[0] = 9999
 
 console.log(listaDeNombres)
+
+listaConFunciones[0]()
