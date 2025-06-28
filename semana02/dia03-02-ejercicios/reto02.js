@@ -16,7 +16,19 @@ Tenemos que crear una función que recibe el número de céntimos que hay que de
 */
 
 function getCoins(change) {
-  return change
+  const muliples = [50, 20, 10, 5, 2, 1]
+
+  let acc = change // 51
+  
+  return muliples
+    .map(function(multiple) {
+      let quotient = Math.floor(acc / multiple)
+
+      if (quotient > 0) acc = acc % multiple
+      
+      return quotient
+    })
+    .reverse()
 }
 
 console.log('RETO 2')
