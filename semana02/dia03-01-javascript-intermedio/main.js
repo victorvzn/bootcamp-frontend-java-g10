@@ -64,3 +64,9 @@ console.log('bienvenido'.length)
 // Otras funciones: slice (Investiguen)
 
 // https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+
+// Split y join para cadenas
+
+console.log('frutas'.split(''))
+console.log('frutas'.split('').join(''))
+
