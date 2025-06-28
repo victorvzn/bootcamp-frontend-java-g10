@@ -211,3 +211,102 @@ console.log(miObjeto.cursos[1]['nota'])
 
 console.log(miObjeto.devolverCursosAprobados)
 console.log(miObjeto.devolverCursosAprobados())
+
+// ELIMINAR PROPIEDADES DE UN OBJETO
+
+const nuevoObjeto = {...miObjeto}
+delete nuevoObjeto.colorFavorito
+
+console.log(nuevoObjeto)
+console.log(miObjeto)
+
+// Otra forma de eliminar el valor de un objeto
+
+// miObjeto.apellido = undefined
+console.log(miObjeto)
+
+// INSERTAR UN NUEVA PROPIEDAD A UN OBJETO
+
+miObjeto.platilloFavorito = 'Ceviche de Conchas Negras'
+miObjeto['juegos favoritos'] = ['Crash Team Racing', 'Mario', 'Minecraft']
+
+console.log(miObjeto)
+
+// DESTRUCTURING DE ARREGLOS, OBJETOS
+
+// Una forma de extraer las propiedades/elementos de un objeto o un arreglo en nuevas variables
+
+// DESTRUCTURING EN OBJETOS
+
+const nombreValue = miObjeto.nombre
+const apellidoValue = miObjeto.apellido
+const cursosValue = miObjeto.cursos
+
+console.log(nombreValue, apellidoValue, cursosValue)
+
+const { nombre, apellido, cursos } = miObjeto
+
+console.log(nombre, apellido, cursos)
+
+// Alias en destructuring de objetos
+
+const {
+  nombre: nombreValor,
+  apellido: apellidoValor,
+  cursos: cursosValor
+} = miObjeto
+
+console.log(nombreValor, apellidoValor, cursosValor)
+
+// DESTRUCTURING EN ARRAYS
+
+const amigos = ['leo', 'marcial', 'diego', 'andrea', 'victor']
+
+const [amigo1, amigo2, , , amigo3] = amigos
+
+console.log(amigo1, amigo2, amigo3)
+
+// DESTRUCTURING + SPREAD OPERATOR
+
+const [miMejorAmigo, ...losDemas] = amigos
+
+console.log(miMejorAmigo, losDemas)
+
+// SPREAD OPERATOR (operador ...)
+
+// Extrae las propiedades de un objeto/arreglo para reutiliarlo en otros objetos/arreglos
+
+const producto = {
+  nombre: 'Laptop',
+  precio: 5900,
+  categoria: 'tech'
+}
+
+const cliente = {
+  nombre: 'Marcial',
+  isVip: true
+}
+
+console.log(producto + cliente) // ❌ 💔 [object Object][object Object]
+
+const nuevoObjeto2 = { ...producto, ...cliente } // Cuidado
+
+console.log(nuevoObjeto2)
+
+// SPREAD OPERATOS EVITANDO COLISIONES DE PROPIEDADES
+
+const nuevoObjetoSinColisiones = {
+  producto: { ...producto },
+  cliente: { ...cliente },
+}
+
+console.log(nuevoObjetoSinColisiones)
+console.log(nuevoObjetoSinColisiones.producto.nombre)
+console.log(nuevoObjetoSinColisiones.cliente.nombre)
+
+// OTROS MÉTODOS DE OBJETOS
+
+console.log(Object.keys(producto)) // Obtenemos solo las claves (keys) del objeto
+console.log(Object.values(producto)) // Obtenemos solo los valores (values) del objeto
+console.log(Object.entries(producto)) // convertimos un objeto en un arreglo y lo que devuelve es un arreglo de arreglos
+
