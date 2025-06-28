@@ -6,9 +6,17 @@
 // contarVocales('xyz') → 0
 // contarVocales('Programación') → 5
 
-export function contarVocales(texto = '') {
-  return 0;
+function contarVocales(texto = '') {
+  return [...texto.toLowerCase()]
+    .filter(vocal => 'aeiouáéíóú'
+    .includes(vocal))
+    .length;
 }
+
+console.log(contarVocales('Hola Mundo')) // → 4
+console.log(contarVocales('AEIOU')) // → 5
+console.log(contarVocales('xyz')) // → 0
+console.log(contarVocales('Programación')) // → 5
 
 
 // Ejercicio 2: Eliminar duplicados
@@ -19,7 +27,7 @@ export function contarVocales(texto = '') {
 // eliminarDuplicados([]) → []
 // eliminarDuplicados([true, false, true]) → [true, false]
 
-export function eliminarDuplicados(arr = []) {
+function eliminarDuplicados(arr = []) {
   return arr;
 }
 
@@ -31,7 +39,7 @@ export function eliminarDuplicados(arr = []) {
 // invertirTexto('123') → '321'
 // invertirTexto('') → ''
 
-export function invertirTexto(texto = '') {
+function invertirTexto(texto = '') {
   return texto;
 }
 
@@ -43,7 +51,7 @@ export function invertirTexto(texto = '') {
 // sumarArray([]) → 0
 // sumarArray([-1, 1]) → 0
 
-export function sumarArray(arr = []) {
+function sumarArray(arr = []) {
   return 0;
 }
 
@@ -55,7 +63,7 @@ export function sumarArray(arr = []) {
 // celsiusAFahrenheit(100) → 212
 // celsiusAFahrenheit(-40) → -40
 
-export function celsiusAFahrenheit(c = 0) {
+function celsiusAFahrenheit(c = 0) {
   return c;
 }
 
@@ -67,7 +75,7 @@ export function celsiusAFahrenheit(c = 0) {
 // esPalindromo('Hola') → false
 // esPalindromo('A man a plan a canal Panama') → true
 
-export function esPalindromo(texto = '') {
+function esPalindromo(texto = '') {
   return false;
 }
 
@@ -79,7 +87,7 @@ export function esPalindromo(texto = '') {
 // elementosEnComun([], [1,2]) → []
 // elementosEnComun([true], [true, false]) → [true]
 
-export function elementosEnComun(arr1 = [], arr2 = []) {
+function elementosEnComun(arr1 = [], arr2 = []) {
   return [];
 }
 
@@ -91,7 +99,7 @@ export function elementosEnComun(arr1 = [], arr2 = []) {
 // mayorNumero([-1, -5, -3]) → -1
 // mayorNumero([42]) → 42
 
-export function mayorNumero(arr = []) {
+function mayorNumero(arr = []) {
   return -1;
 }
 
@@ -103,7 +111,7 @@ export function mayorNumero(arr = []) {
 // repetirTexto('JS', 1) → 'JS'
 // repetirTexto('Bye', 0) → ''
 
-export function repetirTexto(texto = '', veces = 1) {
+function repetirTexto(texto = '', veces = 1) {
   return texto;
 }
 
@@ -115,7 +123,7 @@ export function repetirTexto(texto = '', veces = 1) {
 // capitalizar('javaScript') → 'JavaScript'
 // capitalizar('') → ''
 
-export function capitalizar(texto = '') {
+function capitalizar(texto = '') {
   return texto;
 }
 
@@ -127,7 +135,7 @@ export function capitalizar(texto = '') {
 // filtrarPares([5,7,9]) → []
 // filtrarPares([0, 10, 15]) → [0, 10]
 
-export function filtrarPares(arr = []) {
+function filtrarPares(arr = []) {
   return arr;
 }
 
@@ -139,7 +147,7 @@ export function filtrarPares(arr = []) {
 // contarPalabras('') → 0
 // contarPalabras(' Uno dos tres ') → 3
 
-export function contarPalabras(frase = '') {
+function contarPalabras(frase = '') {
   return 0;
 }
 
@@ -151,7 +159,7 @@ export function contarPalabras(frase = '') {
 // reemplazarPalabra('Hola mundo', 'mundo', 'JS') → 'Hola JS'
 // reemplazarPalabra('La casa es blanca', 'blanca', 'roja') → 'La casa es roja'
 
-export function reemplazarPalabra(frase = '', buscar = '', reemplazar = '') {
+function reemplazarPalabra(frase = '', buscar = '', reemplazar = '') {
   return frase;
 }
 
@@ -163,7 +171,7 @@ export function reemplazarPalabra(frase = '', buscar = '', reemplazar = '') {
 // limpiarArray([null, undefined, NaN, 4]) → [4]
 // limpiarArray(['a', '', 'b']) → ['a', 'b']  
 
-export function limpiarArray(arr = []) {
+function limpiarArray(arr = []) {
   return arr;
 }
 
@@ -175,7 +183,7 @@ export function limpiarArray(arr = []) {
 // generarRango(1) → [1]
 // generarRango(0) → []
 
-export function generarRango(n = 0) {
+function generarRango(n = 0) {
   return [];
 }
 
@@ -187,7 +195,7 @@ export function generarRango(n = 0) {
 // caracterFrecuente('xyz xyz') → 'x'
 // caracterFrecuente('aa bb cc dd') → 'a'
 
-export function caracterFrecuente(texto = '') {
+function caracterFrecuente(texto = '') {
   return '';
 }
 
@@ -199,7 +207,7 @@ export function caracterFrecuente(texto = '') {
 // contarOcurrencias('a b a b c') → { a: 2, b: 2, c: 1 }
 // contarOcurrencias('') → {}
 
-export function contarOcurrencias(frase = '') {
+function contarOcurrencias(frase = '') {
   return {};
 }
 
@@ -211,7 +219,7 @@ export function contarOcurrencias(frase = '') {
 // obtenerLongitudes('a bc def') → [1, 2, 3]
 // obtenerLongitudes('') → []
 
-export function obtenerLongitudes(texto = '') {
+function obtenerLongitudes(texto = '') {
   return [];
 }
 
@@ -223,7 +231,7 @@ export function obtenerLongitudes(texto = '') {
 // promedioArray([10]) → 10
 // promedioArray([]) → 0
 
-export function promedioArray(arr = []) {
+function promedioArray(arr = []) {
   return 0;
 }
 
@@ -235,7 +243,7 @@ export function promedioArray(arr = []) {
 // textoALista('a,b,c') → ['a', 'b', 'c']
 // textoALista('') → []
 
-export function textoALista(texto = '') {
+function textoALista(texto = '') {
   return [];
 }
   
