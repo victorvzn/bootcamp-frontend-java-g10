@@ -7,32 +7,32 @@
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
-  <main>
-    <h1 class="text-3xl font-bold underline text-red-600">
+  <main class="w-[300px] bg-[#AADDEE] my-0 mx-auto mt-5 p-5 rounded-md shadow-md">
+    <h1 class="text-3xl font-bold text-center mb-4">
       Calculadora
     </h1>
 
-    <section>
-      <input type="text" id="inputDisplay" readonly value="0" />
+    <section class="flex flex-col gap-2">
+      <input type="text" id="inputDisplay" readonly value="0" class="border p-1 text-right text-2xl font-bold" />
 
-      <div>
-        <button class="button">+</button>
-        <button class="button">-</button>
-        <button class="button">*</button>
+      <div class="grid grid-cols-3 gap-3">
+        <button class="button bg-red-400 p-2 rounded-md hover:bg-red-500 duration-300">+</button>
+        <button class="button bg-red-400 p-2 rounded-md hover:bg-red-500 duration-300">-</button>
+        <button class="button bg-red-400 p-2 rounded-md hover:bg-red-500 duration-300">*</button>
 
-        <button class="button">7</button>
-        <button class="button">8</button>
-        <button class="button">9</button>
-        <button class="button">4</button>
-        <button class="button">5</button>
-        <button class="button">6</button>
-        <button class="button">1</button>
-        <button class="button">2</button>
-        <button class="button">3</button>
-        <button class="button">0</button>
+        <button class="button bg-blue-400 p-2 rounded-md hover:bg-blue-500 duration-300">7</button>
+        <button class="button bg-blue-400 p-2 rounded-md hover:bg-blue-500 duration-300">8</button>
+        <button class="button bg-blue-400 p-2 rounded-md hover:bg-blue-500 duration-300">9</button>
+        <button class="button bg-blue-400 p-2 rounded-md hover:bg-blue-500 duration-300">4</button>
+        <button class="button bg-blue-400 p-2 rounded-md hover:bg-blue-500 duration-300">5</button>
+        <button class="button bg-blue-400 p-2 rounded-md hover:bg-blue-500 duration-300">6</button>
+        <button class="button bg-blue-400 p-2 rounded-md hover:bg-blue-500 duration-300">1</button>
+        <button class="button bg-blue-400 p-2 rounded-md hover:bg-blue-500 duration-300">2</button>
+        <button class="button bg-blue-400 p-2 rounded-md hover:bg-blue-500 duration-300">3</button>
+        <button class="button bg-blue-400 p-2 rounded-md hover:bg-blue-500 duration-300">0</button>
 
-        <button class="button">AC</button>
-        <button class="button">=</button>
+        <button class="button bg-green-400 p-2 rounded-md hover:bg-green-500 duration-300">AC</button>
+        <button class="button bg-green-400 p-2 rounded-md hover:bg-green-500 duration-300">=</button>
       </div>
     </section>
   </main>
