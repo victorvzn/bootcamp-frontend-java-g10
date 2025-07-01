@@ -10,5 +10,43 @@ taskAdd.addEventListener('click', function(event) {
   // Se ejecutará cuando hagamos click en el botón 'Añadir tarea'
   console.log('Click!!!', taskInput.value)
 
-  // DOM: Forma de crear elementos dinámicamente con el DOM de Javascript
+  // MANEJO DEL DOM: Forma de crear elementos dinámicamente con el DOM de Javascript
+  // const button = document.createElement('button')
+  // button.textContent = 'Hola soy un botón'
+  // console.log(button)
+  // document.body.appendChild(button)
+
+  // 01 Añadir el elemento li al elemento con la clase task__list
+  const li = document.createElement('li')
+
+  // 02 Añadir el elemento span al elemento li
+  const span = document.createElement('span')
+  span.textContent = taskInput.value
+  li.appendChild(span)
+
+  // TODO: 03 Añadir el elemento button al elemento li
+  const button = document.createElement('button')
+  button.textContent = 'Borrar'
+  li.appendChild(button)
+
+  taskList.appendChild(li)
+
+  // 04 Limpiar la caja de texto después de crear la tarea
+  taskInput.value = ''
+})
+
+// TODO: Permitir al botón borrar remover una tarea de lista
+
+taskList.addEventListener('click', function(event) {
+  console.log({ target: event.target })
+
+  const { target } = event // En target obtenemos el elemento presionado
+
+  if (target.tagName === 'BUTTON') {
+    console.log('Eliminando tarea..')
+
+    console.log(target.parentElement)
+
+    target.parentElement.remove()
+  }
 })
