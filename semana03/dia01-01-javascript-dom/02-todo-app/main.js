@@ -19,12 +19,14 @@ taskAdd.addEventListener('click', function(event) {
   // 01 Añadir el elemento li al elemento con la clase task__list
   const li = document.createElement('li')
 
+  // TODO: Añadir un checkbox y al hacerle click que tache solo el texto de la tarea de color rojo. Ayuda CSS: "color: red; text-decoration: line-through;"
+
   // 02 Añadir el elemento span al elemento li
   const span = document.createElement('span')
   span.textContent = taskInput.value
   li.appendChild(span)
 
-  // TODO: 03 Añadir el elemento button al elemento li
+  // DONE: 03 Añadir el elemento button al elemento li
   const button = document.createElement('button')
   button.textContent = 'Borrar'
   li.appendChild(button)
@@ -35,7 +37,7 @@ taskAdd.addEventListener('click', function(event) {
   taskInput.value = ''
 })
 
-// TODO: Permitir al botón borrar remover una tarea de lista
+// DONE: Permitir al botón borrar remover una tarea de lista
 
 taskList.addEventListener('click', function(event) {
   console.log({ target: event.target })
