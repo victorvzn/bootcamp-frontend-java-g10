@@ -49,8 +49,7 @@ buttons.forEach(function(button) {
     inputDisplay.value = numeroActual
     // console.log({el: this}) // equivalente a event.target
   })
-
-})
+});
 
 
 // const inputDisplay = document.getElementById('inputDisplay') // Consulta un elemento por su atributo id
@@ -60,3 +59,15 @@ buttons.forEach(function(button) {
 // console.log(inputDisplay)
 // console.log(inputDisplay.value)
 // inputDisplay.value = 'hola'
+
+
+// IIFE (Funciones que se invocan inmediatamente)
+;(function(){
+ // El codigo aquí no es parte del objeto window global
+})();
+
+// O podemos usar los ESM (EcmaScript Modules)
+
+window.onload = function() {
+
+}
