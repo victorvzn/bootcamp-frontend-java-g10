@@ -16,6 +16,8 @@ taskAdd.addEventListener('click', function(event) {
   // console.log(button)
   // document.body.appendChild(button)
 
+  // TODO: Validar la entrada del usuario para que no agregue tareas vacías.
+
   // 01 Añadir el elemento li al elemento con la clase task__list
   const li = document.createElement('li')
 
