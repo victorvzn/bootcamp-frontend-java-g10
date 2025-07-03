@@ -25,7 +25,21 @@ function renderTasks() {
   let list = ''
 
   tasks.forEach(function(task, index) {
-    list = list + '<li>Tarea</li>'
+    // list = list + '<li>' + task.title + '</li>'
+    list = list + `
+      <li class="flex justify-center items-center gap-4 py-1">
+        <input
+          type="checkbox"
+          ${task.completed ? 'checked' : '' }
+        />
+        <div class="w-full">
+          ${task.title}
+        </div>
+        <button class="border border-red-700 font-medium text-sm p-1 px-3 text-red-900 hover:bg-red-700 hover:text-white rounded-lg duration-300">
+          Borrar
+        </button>
+      </li>
+    `
   })
 
   console.log(list)
