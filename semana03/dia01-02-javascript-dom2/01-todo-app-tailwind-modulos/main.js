@@ -46,7 +46,7 @@ function renderTasks() {
           ${task.title}
         </div>
         <button
-          class="border border-red-700 font-medium text-sm p-1 px-3 text-red-900 hover:bg-red-700 hover:text-white rounded-lg duration-300"
+          class="removebtn border border-red-700 font-medium text-sm p-1 px-3 text-red-900 hover:bg-red-700 hover:text-white rounded-lg duration-300"
         >
           Borrar
         </button>
@@ -58,10 +58,12 @@ function renderTasks() {
   taskList.innerHTML = list
 }
 
-taskList.querySelectorAll('button').forEach(button => {
-  button.addEventListener('click', function(event) {
-    console.log('removing task...s')
-  })
+taskList.addEventListener('click', function(event) {
+  const { target } = event
+
+  if (target.tagName === 'BUTTON' && target.classList.contains('removebtn')) {
+    console.log('eliminando tarea...')
+  }
 })
 
 // TODO: 01 - Al presionar enter en la caja de texto debe agregarse una nueva tarea.
