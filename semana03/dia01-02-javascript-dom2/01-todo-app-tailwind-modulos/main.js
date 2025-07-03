@@ -22,17 +22,13 @@ let tasks = []
 //   }
 // ]
 
-function removeTask() {
-  console.log('Removiendo tarea ->')
-}
+// window.removeTask = removeTask // ❌
 
 function renderTasks() {
   // console.log('Renderizando las tareas...')
   let list = ''
 
   // TODO: Validar y añadir el contendo "No hay tareas registradas" si no hay tareas en el array tasks.
-
-
 
   tasks.forEach(function(task, index) {
     // list = list + '<li>' + task.title + '</li>'
@@ -65,6 +61,8 @@ taskList.addEventListener('click', function(event) {
     console.log('eliminando tarea...')
   }
 })
+
+
 
 // TODO: 01 - Al presionar enter en la caja de texto debe agregarse una nueva tarea.
 // Manejar eventos, y renderizar el nuevo elemento.
