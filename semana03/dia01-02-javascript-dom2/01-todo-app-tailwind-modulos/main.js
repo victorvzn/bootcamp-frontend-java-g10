@@ -43,6 +43,7 @@ function renderTasks() {
         </div>
         <button
           class="removebtn border border-red-700 font-medium text-sm p-1 px-3 text-red-900 hover:bg-red-700 hover:text-white rounded-lg duration-300"
+          data-id="${task.id}"
         >
           Borrar
         </button>
@@ -59,6 +60,15 @@ taskList.addEventListener('click', function(event) {
 
   if (target.tagName === 'BUTTON' && target.classList.contains('removebtn')) {
     console.log('eliminando tarea...')
+    const { id } = target.dataset
+
+    console.log(id)
+
+    tasks = tasks.filter(function(task) {
+      return task.id !== id
+    })
+
+    renderTasks()
   }
 })
 
