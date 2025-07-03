@@ -125,4 +125,8 @@ taskInput.addEventListener('keydown', function(event) {
   }
 })
 
+taskClear.addEventListener('click', function(event) {
+  // TODO: Al hace click en el botón limpiar debemos remover todas las tareas completadas. Hay que llamar al método render.
+})
+
 renderTasks()
