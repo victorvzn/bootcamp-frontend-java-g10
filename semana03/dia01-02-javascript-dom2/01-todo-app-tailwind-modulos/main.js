@@ -46,4 +46,7 @@ function renderTasks() {
   taskList.innerHTML = list
 }
 
+// TODO: 01 - Al presionar enter en la caja de texto debe agregarse una nueva tarea.
+// Manejar eventos, y renderizar el nuevo elemento.
+
 renderTasks()
