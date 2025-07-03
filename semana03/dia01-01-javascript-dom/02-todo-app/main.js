@@ -17,11 +17,18 @@ taskAdd.addEventListener('click', function(event) {
   // document.body.appendChild(button)
 
   // TODO: 01 - Validar la entrada del usuario para que no agregue tareas vacías.
+  if (taskInput.value.trim() === '') {
+    taskInput.value = ''
+    taskInput.focus()
+    return
+  }
 
   // 01 Añadir el elemento li al elemento con la clase task__list
   const li = document.createElement('li')
 
   // TODO: 02 - Añadir un checkbox y al hacerle click que tache solo el texto de la tarea de color rojo. Ayuda CSS: "color: red; text-decoration: line-through;"
+
+  
 
   // TODO: 03 - Permitir que el usuario pueda editar la tarea, la implementación es según su criterio ejemplo: Al hacer doble click en el título de la tarea o agregar un botón que active la edición. 
 
@@ -49,7 +56,7 @@ taskList.addEventListener('click', function(event) {
   const { target } = event // En target obtenemos el elemento presionado
 
   if (target.tagName === 'BUTTON') {
-    console.log('Eliminando tarea..')
+    console.log('Eliminando tarea..') 
 
     console.log(target.parentElement)
 
