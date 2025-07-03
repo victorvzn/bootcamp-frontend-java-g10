@@ -22,7 +22,7 @@ let tasks = []
 //   }
 // ]
 
-// window.removeTask = removeTask // ❌
+// window.removeTask = removeTask // ❌ Exponemos el método
 
 function renderTasks() {
   // console.log('Renderizando las tareas...')
