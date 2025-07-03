@@ -33,12 +33,13 @@ function renderTasks() {
   tasks.forEach(function(task, index) {
     // list = list + '<li>' + task.title + '</li>'
     list = list + `
-      <li class="flex justify-center items-center gap-4 py-1">
+      <li class="flex justify-center items-center gap-4 py-1" >
         <input
           type="checkbox"
           ${task.completed ? 'checked' : '' }
+          data-id="${task.id}"
         />
-        <div class="w-full">
+        <div class="w-full ${task.completed ? 'line-through text-red-600' : '' }">
           ${task.title}
         </div>
         <button
@@ -70,9 +71,26 @@ taskList.addEventListener('click', function(event) {
 
     renderTasks()
   }
+
+  if (target.tagName === 'INPUT' && target.type === 'checkbox') {
+    const { id } = target.dataset
+
+    console.log('Completando tarea...', id)
+
+    const taskSelectedIndex = tasks.findIndex(function(task) {
+      return task.id === id
+    })
+
+    tasks[taskSelectedIndex] = {
+      ...tasks[taskSelectedIndex],
+      completed: !tasks[taskSelectedIndex].completed
+    }
+
+    console.log({tasks})
+
+    renderTasks()
+  }
 })
-
-
 
 // TODO: 01 - Al presionar enter en la caja de texto debe agregarse una nueva tarea.
 // Manejar eventos, y renderizar el nuevo elemento.
