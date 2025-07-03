@@ -27,8 +27,9 @@ taskAdd.addEventListener('click', function(event) {
   const li = document.createElement('li')
 
   // TODO: 02 - Añadir un checkbox y al hacerle click que tache solo el texto de la tarea de color rojo. Ayuda CSS: "color: red; text-decoration: line-through;"
-
-  
+  const checkbox = document.createElement('input')
+  checkbox.type = 'checkbox'
+  li.appendChild(checkbox)
 
   // TODO: 03 - Permitir que el usuario pueda editar la tarea, la implementación es según su criterio ejemplo: Al hacer doble click en el título de la tarea o agregar un botón que active la edición. 
 
