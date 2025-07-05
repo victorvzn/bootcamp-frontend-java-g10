@@ -6,6 +6,21 @@ const taskList = document.querySelector('.task__list')
 
 // Localstorage
 
+// Escritura de LS
+// localStorage.setItem('frutas', 'manzana, pera, plátano')
+// localStorage.setItem('colores', ['rojo', 'verde', 'amarillo'])
+// localStorage.setItem('persona', { edad: 18 }) // [object object]
+// localStorage.setItem('numero', 25)
+// localStorage.setItem('curso', JSON.stringify({ name: 'Algoritmos', nota: 19 }))
+// Lectura de LS
+// console.log(localStorage.getItem('nombre'))
+// console.log(localStorage.getItem('frutas'))
+// console.log(localStorage.getItem('persona'))
+// console.log(localStorage.getItem('curso'))
+// console.log(JSON.parse(localStorage.getItem('curso')))
+// console.log(localStorage.getItem('keyQueNoExiste')) // null
+
+
 let tasks = []
 
 // let tasks = [
