@@ -1,4 +1,4 @@
-import { renderTasks } from './utils.js'
+import { renderTasks, saludo } from './utils.js'
 
 const taskInput = document.querySelector('.task__input')
 const taskClear = document.querySelector('.task__clear')

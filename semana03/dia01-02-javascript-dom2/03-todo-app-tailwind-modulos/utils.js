@@ -1,5 +1,7 @@
 const taskList = document.querySelector('.task__list')
 
+export const saludo = 'Hola'
+
 export function renderTasks(tasks) {
   // console.log('Renderizando las tareas...')
   let list = ''
