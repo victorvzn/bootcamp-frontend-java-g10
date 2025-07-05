@@ -101,6 +101,14 @@ taskList.addEventListener('click', function(event) {
   }
 })
 
+taskList.addEventListener('dblclick', function(event) {
+  const { target } = event
+
+  if (target.tagName === 'DIV') {
+    console.log('Doble click...')
+  }
+})
+
 // TODO: 01 - Al presionar enter en la caja de texto debe agregarse una nueva tarea.
 // Manejar eventos, y renderizar el nuevo elemento.
 
