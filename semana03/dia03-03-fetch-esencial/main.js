@@ -17,6 +17,14 @@
 
 // EJERCICIO 02 - Renderizar la información de los posts(id, title, body) en la página actual
 
+fetch('https://jsonplaceholder.typicode.com/posts')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data)
+    renderPosts(data)
+  })
+  .catch(error => console.log(error))
+
 const renderPosts = (posts = []) => {
   const divApp = document.querySelector('#app')
 
@@ -34,10 +42,3 @@ const renderPosts = (posts = []) => {
   divApp.innerHTML = postList
 }
 
-fetch('https://jsonplaceholder.typicode.com/posts')
-  .then(response => response.json())
-  .then(data => {
-    console.log(data)
-    renderPosts(data)
-  })
-  .catch(error => console.log(error))
