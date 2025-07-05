@@ -1,5 +1,5 @@
 const taskInput = document.querySelector('.task__input')
-const taskClear = document.querySelector('.task__clear2')
+const taskClear = document.querySelector('.task__clear')
 const taskList = document.querySelector('.task__list')
 
 let tasks = []
@@ -29,6 +29,15 @@ function renderTasks() {
   let list = ''
 
   // TODO: Validar y añadir el contendo "No hay tareas registradas" si no hay tareas en el array tasks.
+
+  if (tasks.length === 0) {
+    taskList.innerHTML = `
+      <li class="mt-4 p-4 bg-yellow-100 text-yellow-800 text-sm rounded-lg text-center font-medium border border-yellow-300">
+        No hay tareas registradas
+      </li>
+    `
+    return
+  }
 
   tasks.forEach(function(task, index) {
     // list = list + '<li>' + task.title + '</li>'
@@ -127,6 +136,15 @@ taskInput.addEventListener('keydown', function(event) {
 
 taskClear.addEventListener('click', function(event) {
   // TODO: Al hace click en el botón limpiar debemos remover todas las tareas completadas. Hay que llamar al método render.
+  
+  const completedTasks = tasks.filter(function(task) {
+    // return task.completed === false
+    return !task.completed
+  })
+
+  tasks = completedTasks
+
+  renderTasks()
 })
 
 renderTasks()
