@@ -21,7 +21,7 @@ const taskList = document.querySelector('.task__list')
 // console.log(localStorage.getItem('keyQueNoExiste')) // null
 
 
-let tasks = []
+let tasks = JSON.parse(localStorage.getItem('tasks')) || []
 
 // let tasks = [
 //   {
@@ -43,6 +43,10 @@ let tasks = []
 
 // window.removeTask = removeTask // ❌ Exponemos el método
 
+function saveTasks(tasks) {
+  localStorage.setItem('tasks', JSON.stringify(tasks))
+}
+
 taskList.addEventListener('click', function(event) {
   const { target } = event
 
@@ -57,6 +61,8 @@ taskList.addEventListener('click', function(event) {
     })
 
     renderTasks(tasks)
+
+    saveTasks(tasks)
   }
 
   if (target.tagName === 'INPUT' && target.type === 'checkbox') {
@@ -76,6 +82,8 @@ taskList.addEventListener('click', function(event) {
     console.log({tasks})
 
     renderTasks(tasks)
+
+    saveTasks(tasks)
   }
 })
 
@@ -117,6 +125,8 @@ taskInput.addEventListener('keydown', function(event) {
     taskInput.value = ''
 
     renderTasks(tasks)
+
+    saveTasks(tasks)
   }
 })
 
@@ -131,6 +141,8 @@ taskClear.addEventListener('click', function(event) {
   tasks = completedTasks
 
   renderTasks(tasks)
+
+  saveTasks(tasks)
 })
 
 renderTasks(tasks)
