@@ -58,7 +58,6 @@ const fetchPostsConManejoDeErrores = async () => {
   }
 }
 
-
 const renderPosts = (posts = []) => {
   const divApp = document.querySelector('#app')
 
