@@ -2,6 +2,8 @@ let currentPage = 1
 let totalCount = 0
 const LIMIT = 9
 
+let pokemonFavorites = JSON.parse(localStorage.getItem('pokemon-favorites')) ?? []
+
 const fetchPokemons = async (page=1) => {
   const offset = (page - 1) * LIMIT
 
@@ -14,11 +16,13 @@ const fetchPokemons = async (page=1) => {
   const dataResults = data.results.map(pokemon => {
     const id = pokemon.url.split('/').at(6)
     const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`
+    const foundFavorite = pokemonFavorites.find(favorite => favorite.id === id)
 
     return {
       ...pokemon,
       id,
-      image
+      image,
+      isFavorite: Boolean(foundFavorite)
     }
   })
 
@@ -50,8 +54,8 @@ const renderPokemons = (pokemons = []) => {
           height="80"
         />
         <div class="pokemon-item__buttons">
-          <button>
-            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-star"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
+          <button onclick="toggleFavorite('${pokemon.id}','${pokemon.name}','${pokemon.image}')">
+            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-star ${pokemon.isFavorite ? 'is-favorite' : ''}"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
           </button>
           <button>
             <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-edit"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" /><path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" /><path d="M16 5l3 3" /></svg>
@@ -66,6 +70,25 @@ const renderPokemons = (pokemons = []) => {
   const totalPages = Math.ceil(totalCount / LIMIT)
 
   elCurrentPage.textContent = `${currentPage} de ${totalPages}`
+}
+
+const toggleFavorite = async (id, name, image) => {
+  const foundPokemonFavorite = pokemonFavorites.filter(favorite => favorite.id === id)
+  const existPokemonFavorite = foundPokemonFavorite.length > 0
+  
+  if (existPokemonFavorite) {
+    // retiramos el pokemon de favoritos
+    pokemonFavorites = pokemonFavorites.filter(pokemon => pokemon.id !== id)
+  } else {
+    // Almacenamos el pokemon en memoria/localstorage si no existe
+    pokemonFavorites.push({ id, name, image })
+  }
+
+  localStorage.setItem('pokemon-favorites', JSON.stringify(pokemonFavorites))
+
+  const data = await fetchPokemons(currentPage)
+
+  renderPokemons(data.results)
 }
 
 const elNextPage = document.querySelector('#nextPage')
