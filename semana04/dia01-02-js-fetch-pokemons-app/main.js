@@ -8,7 +8,7 @@ const fetchPokemons = async () => {
 
 const renderPokemons = (pokemons = []) => {
 
-  // TODO: Renderizar cada pokemon en #pokemonList
+  // TODO: 01 - Renderizar cada pokemon en #pokemonList
 
 }
 
