@@ -35,6 +35,7 @@ const fetchPokemons = async (page=1) => {
 const renderPokemons = (pokemons = []) => {
   // TODO: 01 - Renderizar cada pokemon en #pokemonList
   const pokemonList = document.querySelector('#pokemonList')
+  const elCurrentPage = document.querySelector('#currentPage')
 
   let elements = ''
 
@@ -44,6 +45,7 @@ const renderPokemons = (pokemons = []) => {
         <h2>#${pokemon.id} - ${pokemon.name}</h2>
         <img
           src="${pokemon.image}"
+          onerror="this.src='https://placehold.co/80x80'"
           width="80"
           height="80"
         />
@@ -56,10 +58,16 @@ const renderPokemons = (pokemons = []) => {
   })
 
   pokemonList.innerHTML = elements
+
+  const totalPages = Math.ceil(totalCount / LIMIT)
+
+  elCurrentPage.textContent = `${currentPage} de ${totalPages}`
 }
 
 const elNextPage = document.querySelector('#nextPage')
 const elLastPage = document.querySelector('#lastPage')
+const elPrevPage = document.querySelector('#prevPage')
+const elFirstPage = document.querySelector('#firstPage')
 
 elNextPage.addEventListener('click', async (event) => {
   currentPage = currentPage + 1
@@ -89,6 +97,28 @@ elLastPage.addEventListener('click', async (event) => {
 })
 
 // TODO: Implementar el botón Previous y el botón first
+
+elPrevPage.addEventListener('click', async (event) => {
+  currentPage = currentPage - 1
+
+  if (currentPage <= 0) {
+    currentPage = 1
+    return
+  }
+
+  const data = await fetchPokemons(currentPage)
+
+  renderPokemons(data.results)
+})
+
+elFirstPage.addEventListener('click', async (event) => {
+  currentPage = 1
+
+  const data = await fetchPokemons(currentPage)
+
+  renderPokemons(data.results)
+})
+
 
 fetchPokemons()
   .then(data => {
