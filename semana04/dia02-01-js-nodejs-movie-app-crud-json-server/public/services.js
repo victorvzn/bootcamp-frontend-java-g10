@@ -24,4 +24,4 @@ export const createPelicula = async (form) => {
   return await response.json()
 }
 
-// TODO: terminar la funcionalida de eliminación de peliculas
+// TODO: terminar la funcionalidad de eliminación de películas
