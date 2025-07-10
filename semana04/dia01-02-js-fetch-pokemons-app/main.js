@@ -112,6 +112,47 @@ const elNextPage = document.querySelector('#nextPage')
 const elLastPage = document.querySelector('#lastPage')
 const elPrevPage = document.querySelector('#prevPage')
 const elFirstPage = document.querySelector('#firstPage')
+const pokemonForm = document.querySelector('#pokemonForm')
+
+const handleSubmit = async (event) => {
+  event.preventDefault();
+  
+  console.log('Guardando pokemon en LS')
+
+  const pokemonForm = document.forms['pokemonForm']
+
+  const id = pokemonForm.id.value
+  const updatedName = pokemonForm.name.value
+  const updatedImage = pokemonForm.image.value
+
+  console.log(id, name, image)
+
+  const newPokemons = pokemonFavorites.map(pokemon => {
+    if (pokemon.id === id) {
+      return {
+        id,
+        name: updatedName,
+        image: updatedImage
+      }
+    }
+
+    return pokemon
+  })
+
+  pokemonFavorites = newPokemons
+
+  localStorage.setItem('pokemon-favorites', JSON.stringify(newPokemons))
+
+  pokemonForm.reset()
+
+  const data = await fetchPokemons(currentPage)
+
+  renderPokemons(data.results)
+
+  currentPage.innerHTML = currentPage
+}
+
+pokemonForm.addEventListener('submit', handleSubmit)
 
 elNextPage.addEventListener('click', async (event) => {
   currentPage = currentPage + 1
