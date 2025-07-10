@@ -17,12 +17,14 @@ const fetchPokemons = async (page=1) => {
     const id = pokemon.url.split('/').at(6)
     const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`
     const foundFavorite = pokemonFavorites.find(favorite => favorite.id === id)
+    const isFavorite = Boolean(foundFavorite)
 
     return {
       ...pokemon,
       id,
-      image,
-      isFavorite: Boolean(foundFavorite)
+      name: isFavorite ? foundFavorite.name : pokemon.name,
+      image: isFavorite ? foundFavorite.image : image,
+      isFavorite
     }
   })
 
