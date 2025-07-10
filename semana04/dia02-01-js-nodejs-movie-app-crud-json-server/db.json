@@ -89,6 +89,28 @@
       "estreno": "2023-04-05",
       "generoId": 3,
       "resumen": "Resumen de prueba"
+    },
+    {
+      "id": "8e33"
+    },
+    {
+      "id": "053e"
+    },
+    {
+      "id": "2987",
+      "nombre": "bbb",
+      "imagen": "createPelicula",
+      "estreno": "2025-07-25",
+      "resumen": "asdasd",
+      "generoId": "2"
+    },
+    {
+      "id": "4203",
+      "nombre": "Green",
+      "imagen": "https://placehold.co/100x150/green/white",
+      "estreno": "2025-07-17",
+      "resumen": "asdasasdasd green",
+      "generoId": "3"
     }
   ]
 }
