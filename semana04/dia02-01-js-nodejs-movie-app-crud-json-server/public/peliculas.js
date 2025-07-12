@@ -1,4 +1,9 @@
-import { createPelicula, fetchPeliculas, deletePelicula } from "./services.js"
+import {
+  createPelicula,
+  fetchPeliculas,
+  deletePelicula,
+  getPelicula
+} from "./services.js"
 
 export const renderPeliculas = (peliculas = []) => {
   const elPeliculasList = document.querySelector('.peliculas__list')
@@ -28,7 +33,7 @@ export const renderPeliculas = (peliculas = []) => {
         </td>
         <td>
           <div class="flex gap-0.5">
-            <button class="peliculas__edit">✏</button>
+            <button class="peliculas__edit" data-id="${pelicula.id}">✏</button>
             <button class="peliculas__remove" data-id="${pelicula.id}">❌</button>
           </div>
         </td>
@@ -64,7 +69,30 @@ export const renderPeliculas = (peliculas = []) => {
     })
   })
 
-  // TODO: REcuperar la información de pelicula seleccionada cuando hagamos click en el botón editar y llenar los datos del formulario
+  // TODO: Recuperar la información de pelicula seleccionada cuando hagamos click en el botón editar.
+
+  const editBotones = document.querySelectorAll('.peliculas__edit')
+
+  editBotones.forEach(boton => {
+    boton.addEventListener('click', async (event) => {
+      const id = event.target.dataset.id
+
+      console.log('Editando pelicula', id)
+
+      const response = await getPelicula(id)
+
+      console.log(response)
+
+      // TODO: Llenar los datos del formulario con la data obtenida de getPelicula(id)
+      const peliculaForm = document.forms['peliculasForm']
+
+      peliculaForm.nombre.value = response.nombre
+      peliculaForm.imagen.value = response.imagen
+      peliculaForm.estreno.value = response.estreno
+      peliculaForm.genero.value = response.generoId // 👁
+      peliculaForm.resumen.value = response.resumen
+    })
+  })
 }
 
 export const newPelicula = async () => {

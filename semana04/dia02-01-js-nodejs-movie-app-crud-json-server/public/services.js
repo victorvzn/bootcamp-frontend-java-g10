@@ -37,3 +37,11 @@ export const deletePelicula = async (id) => {
 
   return await response.json()
 }
+
+export const getPelicula = async (id) => {
+  const url = `http://localhost:3000/peliculas/${id}`
+
+  const reponse = await fetch(url) // Por defecto está usando el método GET
+
+  return await reponse.json() // Tranformamos el json a un objeto JS
+}
