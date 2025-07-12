@@ -1,5 +1,7 @@
 const url = 'https://restcountries.com/v3.1/independent?status=true&fields=name,flags,region,capital,population,languages,currencies,timezones'
 
+let countryData = []
+
 const fetchCountries = async () => {
   try {
     const response = await fetch(url)
@@ -49,14 +51,26 @@ const filterSelect = document.querySelector('.app__filter')
 
 searchInput.addEventListener('input', (event) => {
   // Acceder a lo que se escribe en la caja
+  const { value } = event.target
+  const loweredValue = value.toLowerCase()
 
   // Filtramos los datos de los paises
+  const filteredCountries = countryData.filter(country => {
+    const loweredName = country.name.common.toLowerCase()
+
+    // TODO: Adicionalmente necesitamos filtrar los paises por su capital
+
+    return loweredName.includes(loweredValue)
+  })
 
   // Renderizamos
+  renderCountries(filteredCountries)
 })
 
 
 fetchCountries()
   .then(data => {
+    countryData = data
+
     renderCountries(data)
   })
