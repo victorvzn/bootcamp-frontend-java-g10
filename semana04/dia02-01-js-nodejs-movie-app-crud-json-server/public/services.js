@@ -25,3 +25,15 @@ export const createPelicula = async (form) => {
 }
 
 // TODO: terminar la funcionalidad de eliminación de películas
+
+export const deletePelicula = async (id) => {
+  const url = `http://localhost:3000/peliculas/${id}`
+
+  const options = {
+    method: 'DELETE'
+  }
+
+  const response = await fetch(url, options)
+
+  return await response.json()
+}

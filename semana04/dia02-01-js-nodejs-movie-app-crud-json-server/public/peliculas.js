@@ -29,7 +29,7 @@ export const renderPeliculas = (peliculas = []) => {
         <td>
           <div class="flex gap-0.5">
             <button class="peliculas__edit">✏</button>
-            <button class="peliculas__remove">❌</button>
+            <button class="peliculas__remove" data-id="${pelicula.id}">❌</button>
           </div>
         </td>
       </tr>
@@ -37,6 +37,18 @@ export const renderPeliculas = (peliculas = []) => {
   })
 
   elPeliculasList.innerHTML = elementos
+
+  const removeBotones = document.querySelectorAll('.peliculas__remove')
+
+  removeBotones.forEach(boton => {
+    boton.addEventListener('click', async (event) => {
+      const id = event.target.dataset.id
+
+      console.log('Eliminando pelicula', id)
+
+      // TODO: Terminar de hacer el llamado a la función 'deletePelicula(id)' y refrescar la tabla de peliculas
+    })
+  })
 }
 
 export const newPelicula = async () => {
