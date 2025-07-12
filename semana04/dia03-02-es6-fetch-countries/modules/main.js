@@ -44,6 +44,14 @@ const renderCountries = (countries = []) => {
   countryListElement.innerHTML = countryList
 }
 
+export const renderResults = (countriesFiltered) => {
+  const resultsDiv = document.querySelector('.app__results')
+
+  const total = countriesFiltered.length
+
+  resultsDiv.textContent = `${total} Countries Filtered`
+}
+
 // TODO: Necesitamos hacer busquedas por capital, nombre de pais. Y además necesitamos filtrar los paises por su region usando el select 'Filter by Region'.
 
 const searchInput = document.querySelector('.app__input')
@@ -68,6 +76,7 @@ searchInput.addEventListener('input', (event) => {
 
   // Renderizamos
   renderCountries(filteredCountries)
+  renderResults(filteredCountries)
 })
 
 filterSelect.addEventListener('input', (event) => {
