@@ -63,6 +63,8 @@ export const renderPeliculas = (peliculas = []) => {
       }
     })
   })
+
+  // TODO: REcuperar la información de pelicula seleccionada cuando hagamos click en el botón editar y llenar los datos del formulario
 }
 
 export const newPelicula = async () => {
