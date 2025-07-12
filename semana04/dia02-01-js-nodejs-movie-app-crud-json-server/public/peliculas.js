@@ -1,4 +1,4 @@
-import { createPelicula, fetchPeliculas } from "./services.js"
+import { createPelicula, fetchPeliculas, deletePelicula } from "./services.js"
 
 export const renderPeliculas = (peliculas = []) => {
   const elPeliculasList = document.querySelector('.peliculas__list')
@@ -47,6 +47,20 @@ export const renderPeliculas = (peliculas = []) => {
       console.log('Eliminando pelicula', id)
 
       // TODO: Terminar de hacer el llamado a la función 'deletePelicula(id)' y refrescar la tabla de peliculas
+
+      const confirmaElimacion = confirm('¿Estas seguro de eliminar esta pelicula?')
+
+      if (confirmaElimacion) {
+        const response = await deletePelicula(id)
+
+        console.log(response)
+
+        if(response) {
+          const peliculas = await fetchPeliculas()
+
+          renderPeliculas(peliculas)
+        }
+      }
     })
   })
 }
