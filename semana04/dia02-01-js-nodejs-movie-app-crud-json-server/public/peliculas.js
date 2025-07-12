@@ -2,7 +2,8 @@ import {
   createPelicula,
   fetchPeliculas,
   deletePelicula,
-  getPelicula
+  getPelicula,
+  editPelicula
 } from "./services.js"
 
 export const renderPeliculas = (peliculas = []) => {
@@ -86,6 +87,7 @@ export const renderPeliculas = (peliculas = []) => {
       // TODO: Llenar los datos del formulario con la data obtenida de getPelicula(id)
       const peliculaForm = document.forms['peliculasForm']
 
+      peliculaForm.id.value = response.id
       peliculaForm.nombre.value = response.nombre
       peliculaForm.imagen.value = response.imagen
       peliculaForm.estreno.value = response.estreno
@@ -95,10 +97,12 @@ export const renderPeliculas = (peliculas = []) => {
   })
 }
 
-export const newPelicula = async () => {
+export const handleSavePelicula = async () => {
   console.log('Creando nueva pelicula...')
 
   const peliculaForm = document.forms['peliculasForm']
+
+  const id = peliculaForm.id.value
 
   const nombre = peliculaForm.nombre.value
   const imagen = peliculaForm.imagen.value
@@ -106,23 +110,48 @@ export const newPelicula = async () => {
   const genero = peliculaForm.genero.value
   const resumen = peliculaForm.resumen.value
 
+  const isEditing = Boolean(id)
+
   console.log({ nombre, imagen, estreno, genero, resumen })
 
-  const nuevaPelicula = {
-    nombre,
-    imagen,
-    estreno,
-    resumen,
-    generoId: genero
+  if (isEditing) { // Puedor guardar la data editada
+    const form = {
+      nombre,
+      imagen,
+      estreno,
+      resumen,
+      generoId: genero
+    }
+
+    const response = editPelicula(id, form)
+
+    if (response) {
+      const peliculas = await fetchPeliculas()
+
+      renderPeliculas(peliculas)
+    }
+
+    peliculaForm.reset()
+
+  } else { // Creo una nueva pelicula
+    const nuevaPelicula = {
+      nombre,
+      imagen,
+      estreno,
+      resumen,
+      generoId: genero
+    }
+
+    const response = await createPelicula(nuevaPelicula)
+
+    if (response) {
+      const peliculas = await fetchPeliculas()
+
+      renderPeliculas(peliculas)
+    }
+
+    peliculaForm.reset()
   }
 
-  const response = await createPelicula(nuevaPelicula)
 
-  if (response) {
-    const peliculas = await fetchPeliculas()
-
-    renderPeliculas(peliculas)
-  }
-
-  peliculaForm.reset()
 }

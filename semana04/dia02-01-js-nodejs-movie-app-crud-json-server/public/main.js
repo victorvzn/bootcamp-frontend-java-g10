@@ -1,12 +1,15 @@
 import { fetchPeliculas } from './services.js'
-import { renderPeliculas, newPelicula } from './peliculas.js'
+import { renderPeliculas, handleSavePelicula } from './peliculas.js'
 
 const elPeliculasForm = document.querySelector('#peliculasForm')
 
 elPeliculasForm.addEventListener('submit', async (event) => {
   event.preventDefault()
 
-  newPelicula()
+  // FAlta la edición de la pelicula
+
+  // Se ejecuta cuando es una nueva película
+  handleSavePelicula()
 })
 
 // Ejemplo usando promesas
