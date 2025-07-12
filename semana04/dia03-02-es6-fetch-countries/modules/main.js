@@ -59,14 +59,32 @@ searchInput.addEventListener('input', (event) => {
     const loweredName = country.name.common.toLowerCase()
 
     // TODO: Adicionalmente necesitamos filtrar los paises por su capital
+    const joinedCapitals = country.capital.join(',') // Une todos los elementos de un arreglo en una cadena de texto
+    const loweredCapitals = joinedCapitals.toLowerCase()
 
-    return loweredName.includes(loweredValue)
+    return loweredName.includes(loweredValue) || loweredCapitals.includes(loweredValue)
+
   })
 
   // Renderizamos
   renderCountries(filteredCountries)
 })
 
+filterSelect.addEventListener('input', (event) => {
+  const value = event.target.value
+  const loweredValue = value.toLowerCase()
+
+  const filteredCountriesByRegion = countryData.filter(
+    country => {
+      const loweredRegion = country.region.toLowerCase()
+      
+      return loweredRegion.includes(loweredValue)
+    }
+  )
+
+  renderCountries(filteredCountriesByRegion)
+  renderResults(filteredCountriesByRegion)
+})
 
 fetchCountries()
   .then(data => {
