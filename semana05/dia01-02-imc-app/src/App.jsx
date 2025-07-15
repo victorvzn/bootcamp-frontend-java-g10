@@ -30,7 +30,25 @@ const App = () => {
 
   // TODO: Calcular el estado de IMC usando las condiciones
 
-  const imcResult = 0
+  const imcResult = () => {
+    let result = ''
+
+    if (imcTruncated < 18.5) {
+      result = 'Bajo'
+    } else if (imcTruncated >= 18.51 && imcTruncated <= 24.9) {
+      result = 'Normal'
+    } else if (imcTruncated >= 25 && imcTruncated <= 29.9) {
+      result = 'Sobrepeso'
+    } else if (imcTruncated > 30) {
+      result = 'Obeso'
+    } else {
+      result = 'Datos incorrectos'
+    }
+
+    return result
+  }
+
+
 
   return (
     <section>
@@ -60,7 +78,7 @@ const App = () => {
 
       <p>TU IMC es {imcTruncated}</p>
 
-      <p>Estado de IMC: {imcResult}</p>
+      <p>Estado de IMC: {imcResult()}</p>
     </section>
   )
 }
