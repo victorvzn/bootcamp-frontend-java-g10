@@ -1,34 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  // useState => Este hook nos ayuda a generar un estado para manipular datos dentro de nuestros componentes
+  // useState => devuelve un arreglo con una variable de lectura y una función de escritura para cambiar el estado
 
   return (
-    <>
+    <section>
+      <h1>IMC Calculator</h1>
+
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <p>Weight: 0 kg</p>
+
+        <input
+          type="range"
+          min="50"
+          max="200"
+        />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+
+      <div>
+        <p>Height: 0 cm</p>
+
+        <input
+          type="range"
+          min="50"
+          max="1000"
+        />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+
+      <p>TU IMC es 0.00</p>
+
+      <p>Estado de IMC: ???</p>
+    </section>
   )
 }
 
