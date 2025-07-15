@@ -28,6 +28,8 @@ const App = () => {
   // * Sobrepeso: < 25 - 29.9 
   // * Obeso: > 30
 
+  // TODO: Calcular el estado de IMC usando las condiciones
+
   const imcResult = 0
 
   return (
