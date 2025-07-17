@@ -1,4 +1,4 @@
-const TodoItem = ({ todo }) => {
+const TodoItem = ({ todo, onRemoveTodo }) => {
   return (
     <li className="flex gap-2 bg-yellow-200 p-2 rounded-lg">
       <input
@@ -10,6 +10,8 @@ const TodoItem = ({ todo }) => {
         </span>
         <button
           className="bg-red-300 rounded-lg px-2 py-1 cursor-pointer"
+          data-id={todo.id}
+          onClick={onRemoveTodo}
         >
           ❌
         </button>
