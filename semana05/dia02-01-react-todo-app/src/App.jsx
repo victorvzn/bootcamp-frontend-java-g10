@@ -3,6 +3,7 @@ import { useState } from "react"
 import { TodoHeader } from "./components/TodoHeader"
 import TodoList from "./components/TodoList"
 import TodoForm from "./components/TodoForm"
+import TodoStats from "./components/TodoStats"
 
 export default function App() {
   // Logica de la función
@@ -73,6 +74,8 @@ export default function App() {
       <TodoHeader title="Todo APP + React + Tailwind" />
   
       <TodoForm onSubmit={handleSubmit} />
+
+      <TodoStats />
 
       <TodoList
         todos={todos}
