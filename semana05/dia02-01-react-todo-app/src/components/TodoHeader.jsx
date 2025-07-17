@@ -1,8 +1,8 @@
-export const TodoHeader = () => {
+export const TodoHeader = ({ title }) => {
   return (
     <header>
       <h1 className="text-xl font-bold underline">
-        TodoHeader
+        {title}
       </h1>
     </header>
   )

@@ -30,7 +30,7 @@ export default function App() {
     <main 
       className="bg-yellow-100 w-[400px] mx-auto mt-10 border border-yellow-400 rounded-lg shadow-md p-4"
     >
-      <TodoHeader />
+      <TodoHeader title="Todo APP + React + Tailwind" />
       Todo App
     </main>
   )
