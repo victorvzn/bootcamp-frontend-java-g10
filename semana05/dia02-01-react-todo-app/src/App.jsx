@@ -45,6 +45,27 @@ export default function App() {
     setTodos([...todos, newTodo])
   }
 
+  const handleCompleted = (event) => {
+    const { id } = event.target.dataset
+
+    const isChecked = event.target.checked
+
+    console.log(id, isChecked)
+
+    const updatedTodos = todos.map(todo => {
+      if(todo.id === id) {
+        return {
+          ...todo,
+          completed: isChecked
+        }
+      }
+
+      return todo // Dejams el objeto sin modificaciones
+    })
+
+    setTodos(updatedTodos)
+  }
+
   return (
     <main 
       className="bg-yellow-100 w-[400px] mx-auto mt-10 border border-yellow-400 rounded-lg shadow-md p-4"
@@ -53,7 +74,11 @@ export default function App() {
   
       <TodoForm onSubmit={handleSubmit} />
 
-      <TodoList todos={todos} onRemoveTodo={handleRemoveTodo} />
+      <TodoList
+        todos={todos}
+        onRemoveTodo={handleRemoveTodo}
+        onCompleted={handleCompleted}
+      />
 
       <pre className="mt-4">{JSON.stringify(todos, null, 2)}</pre>
     </main>
