@@ -1,4 +1,7 @@
 const TodoItem = ({ todo, onRemoveTodo, onCompleted }) => {
+
+  // TODO: Editar el título del todo haciendo doble click en el título, esto hará que aparezca una caja de texto. Y para guardarlo solo debemos presionar enter en la caja de texto.
+
   return (
     <li className="flex gap-2 bg-yellow-200 p-2 rounded-lg">
       <input

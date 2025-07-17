@@ -3,6 +3,8 @@ import { useState } from "react"
 const TodoForm = ({ onSubmit }) => {
   const [input, setInput] = useState('')
 
+  console.log('FORM')
+
   const handleChange = (event) => {
     // Vamos a capturar lo que escribimos en la caja de texto
     setInput(event.target.value)

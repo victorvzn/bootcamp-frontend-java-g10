@@ -67,6 +67,12 @@ export default function App() {
     setTodos(updatedTodos)
   }
 
+  const handleClearCompletedTodos = () => {
+    const incompletedTodos = todos.filter(todo => !todo.completed)
+
+    setTodos(incompletedTodos)
+  }
+
   return (
     <main 
       className="bg-yellow-100 w-[400px] mx-auto mt-10 border border-yellow-400 rounded-lg shadow-md p-4"
@@ -75,7 +81,7 @@ export default function App() {
   
       <TodoForm onSubmit={handleSubmit} />
 
-      <TodoStats />
+      <TodoStats todos={todos} onClearCompletedTodos={handleClearCompletedTodos} />
 
       <TodoList
         todos={todos}
