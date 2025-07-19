@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Avatar from 'boring-avatars'
 
 export default function App() {
   const DEFAULT_STUDENTS = [
@@ -67,7 +68,7 @@ export default function App() {
         {students.map(student => {
           return (
             <div key={student.id} className="student__row flex justify-between items-center bg-slate-100 p-2 rounded-lg border border-slate-200">
-              <div>Avatar</div>
+              <Avatar name={student.name} size={48} variant="beam" />
               <div className="text-left font-semibold">{student.name}</div>
               <div className="text-left">{student.city}</div>
               <div className="flex gap-4">
