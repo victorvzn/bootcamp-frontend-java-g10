@@ -2,8 +2,8 @@
 
 * [x] Crear proyecto con Vite + React
 * [x] Instalar Tailwind CSS
-* [ ] Mostrar la lista de estudiantes en una tabla o lista
-* [ ] Agregar nuevo estudiante con nombre, edad, curso, u otros datos
+* [x] Mostrar la lista de estudiantes en una tabla o lista
+* [ ] Agregar nuevo estudiante con nombre, ciudad
 * [ ] Validar campos del formulario (no vacíos, edades válidas, etc.)
 * [ ] Editar información de un estudiante
 * [ ] Eliminar estudiante de la lista

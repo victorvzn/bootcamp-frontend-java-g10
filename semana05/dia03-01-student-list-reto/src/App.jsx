@@ -23,6 +23,8 @@ export default function App() {
   // TODO: 01 - Mostrar la lista de estudiantes en una lista
   const [students, setStudent] = useState(DEFAULT_STUDENTS)
 
+  // TODO: 02 - Agregar nuevo estudiante con nombre, ciudad
+
   return (
     <main className="w-96 mx-auto rounded-lg mt-6 p-4">
       <h1 className="text-2xl font-semibold text-center mb-3">Student list - CRUD</h1>
