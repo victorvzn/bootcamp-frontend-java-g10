@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Avatar from 'boring-avatars'
+import { TbEdit, TbTrash } from 'react-icons/tb'
 
 export default function App() {
   const DEFAULT_STUDENTS = [
@@ -62,6 +63,14 @@ export default function App() {
     setForm(DEFAULT_FORM)
   }
 
+  const handleRemove = (id) => {
+    console.log('Deleting student', id)
+
+    const updatedStudents = students.filter(student => student.id !== id)
+
+    setStudents(updatedStudents)
+  }
+
   return (
     <main className="w-96 mx-auto rounded-lg mt-6 p-4">
       <h1 className="text-2xl font-semibold text-center mb-3">Student list - CRUD</h1>
@@ -122,12 +131,13 @@ export default function App() {
                 <button
                   className="text-blue-600 cursor-pointer font-semibold"
                 >
-                  Edit
+                  <TbEdit size={20} />
                 </button>
                 <button
                   className="text-red-600 cursor-pointer font-semibold"
+                  onClick={() => handleRemove(student.id)}
                 >
-                  Delete
+                  <TbTrash size={20} />
                 </button>
               </div>
             </div>
