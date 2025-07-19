@@ -21,7 +21,7 @@ export default function App() {
   ]
 
   // TODO: 01 - Mostrar la lista de estudiantes en una lista
-  const [students, setStudent] = useState(DEFAULT_STUDENTS)
+  const [students, setStudents] = useState(DEFAULT_STUDENTS)
 
   // TODO: 02 - Agregar nuevo estudiante con nombre, ciudad
   const DEFAULT_FORM = {
@@ -44,12 +44,31 @@ export default function App() {
     })
   }
 
+  const handleSave = (event) => {
+    event.preventDefault();
+    
+    console.log('Guardando student...')
+
+    const newStudent = {
+      id: crypto.randomUUID(),
+      name: form.name,
+      city: form.city
+    }
+
+    const updatedStudents = [...students, newStudent]
+
+    setStudents(updatedStudents)
+
+    setForm(DEFAULT_FORM)
+  }
+
   return (
     <main className="w-96 mx-auto rounded-lg mt-6 p-4">
       <h1 className="text-2xl font-semibold text-center mb-3">Student list - CRUD</h1>
 
       <form
         className="flex flex-col gap-3 bg-slate-300 p-3 rounded-lg shadow-lg"
+        onSubmit={handleSave}
       >
         <label className="flex flex-col gap-2">
           <span className="text-sm font-medium text-slate-700">Name</span>
@@ -60,6 +79,7 @@ export default function App() {
             placeholder="Ex. Victor Villazón"
             required
             onChange={handleChange}
+            value={form.name}
           />
         </label>
         <label className="flex flex-col gap-2">
@@ -71,6 +91,7 @@ export default function App() {
             placeholder="Ex. Cuzco"
             required
             onChange={handleChange}
+            value={form.city}
           />
         </label>
         <input
@@ -82,6 +103,7 @@ export default function App() {
           className="bg-amber-500 text-white hover:bg-amber-600 font-medium rounded-lg text-sm w-full py-2.5 cursor-pointer"
           type="button"
           value="Clean form"
+          onClick={() => setForm(DEFAULT_FORM)}
         />
 
         <pre>{JSON.stringify(form)}</pre>
