@@ -23,7 +23,11 @@ export default function App() {
   ]
 
   // TODO: 01 - Mostrar la lista de estudiantes en una lista
-  const [students, setStudents] = useState(DEFAULT_STUDENTS)
+  const [students, setStudents] = useState(() => {
+    const localStoregeStudents = JSON.parse(localStorage.getItem('LS_STUDENTS') ?? '[]')
+    console.log(localStoregeStudents)
+    return localStoregeStudents
+  })
 
   // TODO: 02 - Agregar nuevo estudiante con nombre, ciudad
   const DEFAULT_FORM = {
@@ -63,6 +67,8 @@ export default function App() {
       const updatedStudents = [...students, newStudent]
 
       setStudents(updatedStudents)
+
+      saveStudentInLocalstorage(updatedStudents)
     } else {
       // Update student
       const updatedStudents = students.map(student => {
@@ -78,6 +84,8 @@ export default function App() {
       })
 
       setStudents(updatedStudents)
+
+      saveStudentInLocalstorage(updatedStudents)
     }
 
     setForm(DEFAULT_FORM)
@@ -99,6 +107,8 @@ export default function App() {
         const updatedStudents = students.filter(student => student.id !== id)
 
         setStudents(updatedStudents)
+
+        saveStudentInLocalstorage(updatedStudents)
       }
     });
   }
@@ -116,6 +126,10 @@ export default function App() {
 
   const handleUpdate = (student) => {
     setForm(student)
+  }
+
+  const saveStudentInLocalstorage = (students) => {
+    localStorage.setItem('LS_STUDENTS', JSON.stringify(students))
   }
 
   return (
