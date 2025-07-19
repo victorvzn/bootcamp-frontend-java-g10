@@ -84,6 +84,8 @@ export default function App() {
     });
   }
 
+  // TODO: al presionar el botón editar de cada fila recuperar el studiante en el form.
+
   return (
     <main className="w-96 mx-auto rounded-lg mt-6 p-4">
       <h1 className="text-2xl font-semibold text-center mb-3">Student list - CRUD</h1>
