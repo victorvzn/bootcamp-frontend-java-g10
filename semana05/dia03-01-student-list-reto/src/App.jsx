@@ -24,6 +24,25 @@ export default function App() {
   const [students, setStudent] = useState(DEFAULT_STUDENTS)
 
   // TODO: 02 - Agregar nuevo estudiante con nombre, ciudad
+  const DEFAULT_FORM = {
+    id: '',
+    name: '',
+    city: ''
+  }
+
+  const [form, setForm] = useState(DEFAULT_FORM)
+
+  const handleChange = (event) => {
+    console.log({ input: event.target })
+
+    // Uso destructuring para obtener el name y el value del objeto target
+    const { name, value } = event.target
+
+    setForm({
+      ...form,
+      [name]: value
+    })
+  }
 
   return (
     <main className="w-96 mx-auto rounded-lg mt-6 p-4">
@@ -40,6 +59,7 @@ export default function App() {
             name="name"
             placeholder="Ex. Victor Villazón"
             required
+            onChange={handleChange}
           />
         </label>
         <label className="flex flex-col gap-2">
@@ -50,6 +70,7 @@ export default function App() {
             name="city"
             placeholder="Ex. Cuzco"
             required
+            onChange={handleChange}
           />
         </label>
         <input
@@ -62,6 +83,8 @@ export default function App() {
           type="button"
           value="Clean form"
         />
+
+        <pre>{JSON.stringify(form)}</pre>
       </form>
 
       <h2 className="text-xl font-semibold text-center mb-3 my-8">Student List</h2>
