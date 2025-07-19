@@ -18,6 +18,53 @@ export default function App() {
   ]
 
   return (
-    <div>App</div>
+    <main>
+      <h1>Student list - CRUD</h1>
+
+      <form>
+        <label>
+          <span>Name</span>
+          <input
+            type="text"
+            name="name"
+            placeholder="Ex. Victor Villazón"
+            required
+          />
+        </label>
+        <label>
+          <span>City</span>
+          <input
+            type="text"
+            name="city"
+            placeholder="Ex. Cuzco"
+            required
+          />
+        </label>
+        <input
+          type="submit"
+          value="Save student"
+        />
+        <input
+          type="button"
+          value="Clean form"
+        />
+      </form>
+
+      <section>
+        <div>
+          <div>Avatar</div>
+          <div>Name</div>
+          <div>City</div>
+          <div>
+            <button>
+              Edit
+            </button>
+            <button>
+              Delete
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
   )
 }
