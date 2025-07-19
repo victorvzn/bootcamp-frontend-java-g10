@@ -86,14 +86,31 @@ export default function App() {
   
       <TodoForm onSubmit={handleSubmit} />
 
-      <TodoStats todos={todos} onClearCompletedTodos={handleClearCompletedTodos} />
+      {/* Renderizado condicional */}
 
-      <TodoList
-        todos={todos}
-        onRemoveTodo={handleRemoveTodo}
-        onCompleted={handleCompleted}
-        onSave={handleSaveItem}
-      />
+      {
+        todos.length > 0
+          ? (
+            <>
+              <TodoStats
+                todos={todos}
+                onClearCompletedTodos={handleClearCompletedTodos}
+              />
+
+              <TodoList
+                todos={todos}
+                onRemoveTodo={handleRemoveTodo}
+                onCompleted={handleCompleted}
+                onSave={handleSaveItem}
+              />
+            </>
+          )
+        : (
+          <div className="text-center font-medium text-gray-500 p-8">
+            Agrega más tareas en la caja superior.
+          </div>
+        )
+      }
 
       <pre className="mt-4">{JSON.stringify(todos, null, 2)}</pre>
     </main>
