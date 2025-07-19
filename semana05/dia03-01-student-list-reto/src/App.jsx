@@ -18,22 +18,26 @@ export default function App() {
   ]
 
   return (
-    <main>
-      <h1>Student list - CRUD</h1>
+    <main className="w-96 mx-auto rounded-lg mt-6 p-4">
+      <h1 className="text-2xl font-semibold text-center mb-3">Student list - CRUD</h1>
 
-      <form>
-        <label>
-          <span>Name</span>
+      <form
+        className="flex flex-col gap-3 bg-slate-300 p-3 rounded-lg shadow-lg"
+      >
+        <label className="flex flex-col gap-2">
+          <span className="text-sm font-medium text-slate-700">Name</span>
           <input
+            className="bg-slate-50 border border-slate-300 text-slate-700 text-sm rounded-lg p-2.5"
             type="text"
             name="name"
             placeholder="Ex. Victor Villazón"
             required
           />
         </label>
-        <label>
-          <span>City</span>
+        <label className="flex flex-col gap-2">
+          <span className="text-sm font-medium text-slate-700">City</span>
           <input
+            className="bg-slate-50 border border-slate-300 text-slate-700 text-sm rounded-lg p-2.5"
             type="text"
             name="city"
             placeholder="Ex. Cuzco"
@@ -41,25 +45,33 @@ export default function App() {
           />
         </label>
         <input
+          className="bg-blue-800 text-white hover:bg-blue-900 font-medium rounded-lg text-sm w-full py-2.5 cursor-pointer"
           type="submit"
           value="Save student"
         />
         <input
+          className="bg-amber-500 text-white hover:bg-amber-600 font-medium rounded-lg text-sm w-full py-2.5 cursor-pointer"
           type="button"
           value="Clean form"
         />
       </form>
 
-      <section>
-        <div>
+      <h2 className="text-xl font-semibold text-center mb-3 my-8">Student List</h2>
+
+      <section className="student__list flex flex-col gap-2 mt-2">
+        <div className="student__row flex justify-between items-center bg-slate-100 p-2 rounded-lg border border-slate-200">
           <div>Avatar</div>
-          <div>Name</div>
-          <div>City</div>
-          <div>
-            <button>
+          <div className="text-left font-semibold">Name</div>
+          <div className="text-left">City</div>
+          <div className="flex gap-4">
+            <button
+              className="text-blue-600 cursor-pointer font-semibold"
+            >
               Edit
             </button>
-            <button>
+            <button
+              className="text-red-600 cursor-pointer font-semibold"
+            >
               Delete
             </button>
           </div>
