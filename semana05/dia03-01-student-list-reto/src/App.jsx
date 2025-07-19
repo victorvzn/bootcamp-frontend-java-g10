@@ -1,11 +1,12 @@
 import { useState } from "react"
 import Avatar from 'boring-avatars'
 import { TbEdit, TbTrash } from 'react-icons/tb'
+import Swal from 'sweetalert2'
 
 export default function App() {
   const DEFAULT_STUDENTS = [
     {
-      id: '8941ec9d-c644-4f5c-af28-207bc40604eb',
+      id: '894s1ec9d-c644-4f5c-af28-207bc40604eb',
       name: 'Bulma',
       city: 'Chiclayo'
     },
@@ -66,9 +67,21 @@ export default function App() {
   const handleRemove = (id) => {
     console.log('Deleting student', id)
 
-    const updatedStudents = students.filter(student => student.id !== id)
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const updatedStudents = students.filter(student => student.id !== id)
 
-    setStudents(updatedStudents)
+        setStudents(updatedStudents)
+      }
+    });
   }
 
   return (
