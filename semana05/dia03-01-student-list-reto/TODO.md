@@ -1,7 +1,7 @@
 # Student list + React + Tailwind
 
 * [x] Crear proyecto con Vite + React
-* [ ] Instalar Tailwind CSS
+* [x] Instalar Tailwind CSS
 * [ ] Mostrar la lista de estudiantes en una tabla o lista
 * [ ] Agregar nuevo estudiante con nombre, edad, curso, u otros datos
 * [ ] Validar campos del formulario (no vacíos, edades válidas, etc.)
