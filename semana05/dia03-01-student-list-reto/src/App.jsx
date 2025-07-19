@@ -51,15 +51,34 @@ export default function App() {
     
     console.log('Guardando student...')
 
-    const newStudent = {
-      id: crypto.randomUUID(),
-      name: form.name,
-      city: form.city
+    const isNewStudent = form.id === ''
+
+    if (isNewStudent) {
+      const newStudent = {
+        id: crypto.randomUUID(),
+        name: form.name,
+        city: form.city
+      }
+
+      const updatedStudents = [...students, newStudent]
+
+      setStudents(updatedStudents)
+    } else {
+      // Update student
+      const updatedStudents = students.map(student => {
+        if (student.id === form.id) {
+          return {
+            ...student,
+            name: form.name,
+            city: form.city,
+          }
+        }
+
+        return student
+      })
+
+      setStudents(updatedStudents)
     }
-
-    const updatedStudents = [...students, newStudent]
-
-    setStudents(updatedStudents)
 
     setForm(DEFAULT_FORM)
   }
@@ -85,6 +104,19 @@ export default function App() {
   }
 
   // TODO: al presionar el botón editar de cada fila recuperar el studiante en el form.
+
+  // Opción 1: Update ☹
+  // const handleUpdate = (id) => {
+  //   console.log('Updating student', id)
+
+  //   const studentFound = students.find(student => student.id === id)
+
+  //   setForm(studentFound)
+  // }
+
+  const handleUpdate = (student) => {
+    setForm(student)
+  }
 
   return (
     <main className="w-96 mx-auto rounded-lg mt-6 p-4">
@@ -145,6 +177,7 @@ export default function App() {
               <div className="flex gap-4">
                 <button
                   className="text-blue-600 cursor-pointer font-semibold"
+                  onClick={() => handleUpdate(student)}
                 >
                   <TbEdit size={20} />
                 </button>
