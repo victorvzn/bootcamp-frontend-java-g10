@@ -73,6 +73,11 @@ export default function App() {
     setTodos(incompletedTodos)
   }
 
+  const handleSaveItem = () => {
+    console.log('estoy guardarndo el item...')
+    // TODO: Guardar el todo editado en el estado todos
+  }
+
   return (
     <main 
       className="bg-yellow-100 w-[400px] mx-auto mt-10 border border-yellow-400 rounded-lg shadow-md p-4"
@@ -87,6 +92,7 @@ export default function App() {
         todos={todos}
         onRemoveTodo={handleRemoveTodo}
         onCompleted={handleCompleted}
+        onSave={handleSaveItem}
       />
 
       <pre className="mt-4">{JSON.stringify(todos, null, 2)}</pre>
