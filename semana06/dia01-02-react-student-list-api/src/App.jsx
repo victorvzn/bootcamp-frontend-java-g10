@@ -3,7 +3,7 @@ import Avatar from 'boring-avatars'
 import { TbEdit, TbTrash } from 'react-icons/tb'
 import Swal from 'sweetalert2'
 import { useEffect } from "react"
-import { createStudent, fetchStudents } from "./services/students"
+import { createStudent, fetchStudents, removeStudent } from "./services/students"
 
 export default function App() {
   const [students, setStudents] = useState([])
@@ -63,6 +63,8 @@ export default function App() {
         refreshStudents()
       }
     } else {
+      // TODO: 03 - Enviar una petición para ACTUALIZAR un nuevo estudiante
+
       // Update student
       const updatedStudents = students.map(student => {
         if (student.id === form.id) {
@@ -95,15 +97,15 @@ export default function App() {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!"
-    }).then((result) => {
+    }).then(async (result) => {
       if (result.isConfirmed) {
         // TODO: 02 - Enviar una petición para eliminar un nuevo estudiante
 
-        const updatedStudents = students.filter(student => student.id !== id)
+        const response = await removeStudent(id)
 
-        setStudents(updatedStudents)
-
-        saveStudentInLocalstorage(updatedStudents)
+        if (response) {
+          refreshStudents()
+        }
       }
     });
   }
