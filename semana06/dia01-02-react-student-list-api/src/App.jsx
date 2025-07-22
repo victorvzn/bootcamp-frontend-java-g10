@@ -97,6 +97,8 @@ export default function App() {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
+        // TODO: 02 - Enviar una petición para eliminar un nuevo estudiante
+
         const updatedStudents = students.filter(student => student.id !== id)
 
         setStudents(updatedStudents)
