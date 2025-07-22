@@ -2,34 +2,12 @@ import { useState } from "react"
 import Avatar from 'boring-avatars'
 import { TbEdit, TbTrash } from 'react-icons/tb'
 import Swal from 'sweetalert2'
+import { useEffect } from "react"
+import { fetchStudents } from "./services/students"
 
 export default function App() {
-  const DEFAULT_STUDENTS = [
-    {
-      id: '894s1ec9d-c644-4f5c-af28-207bc40604eb',
-      name: 'Bulma',
-      city: 'Chiclayo'
-    },
-    {
-      id: 'db6e37d1-6df0-4ff2-9a8e-2cb166869d25',
-      name: 'Goku',
-      city: 'Trujillo'
-    },
-    {
-      id: 'a768a694-bf79-4480-8ad5-38ee88e47a34',
-      name: 'Vegeta',
-      city: 'Lima'
-    }
-  ]
+  const [students, setStudents] = useState([])
 
-  // TODO: 01 - Mostrar la lista de estudiantes en una lista
-  const [students, setStudents] = useState(() => {
-    const localStoregeStudents = JSON.parse(localStorage.getItem('LS_STUDENTS') ?? '[]')
-    console.log(localStoregeStudents)
-    return localStoregeStudents
-  })
-
-  // TODO: 02 - Agregar nuevo estudiante con nombre, ciudad
   const DEFAULT_FORM = {
     id: '',
     name: '',
@@ -37,6 +15,14 @@ export default function App() {
   }
 
   const [form, setForm] = useState(DEFAULT_FORM)
+
+  // useEffect(FN, [DEPENDENCIES])
+
+  useEffect(() => {
+    fetchStudents()
+      // .then(setStudents)
+      .then(data => setStudents(data))
+  }, []) // Este useEffect solo se ejecutará en el primer render
 
   const handleChange = (event) => {
     console.log({ input: event.target })
@@ -65,6 +51,8 @@ export default function App() {
       }
 
       const updatedStudents = [...students, newStudent]
+
+      // TODO: 01 - Enviar una petición para crear un nuevo estudiante
 
       setStudents(updatedStudents)
 
@@ -182,7 +170,7 @@ export default function App() {
       <h2 className="text-xl font-semibold text-center mb-3 my-8">Student List</h2>
 
       <section className="student__list flex flex-col gap-2 mt-2">
-        {students.map(student => {
+        {students && students.map(student => {
           return (
             <div key={student.id} className="student__row flex justify-between items-center bg-slate-100 p-2 rounded-lg border border-slate-200">
               <Avatar name={student.name} size={48} variant="beam" />
