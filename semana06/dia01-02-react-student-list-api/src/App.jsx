@@ -4,6 +4,7 @@ import { TbEdit, TbTrash } from 'react-icons/tb'
 import Swal from 'sweetalert2'
 import { useEffect } from "react"
 import { createStudent, fetchStudents, removeStudent, updateStudent } from "./services/students"
+import { Toaster, toast } from 'sonner'
 
 export default function App() {
   const [students, setStudents] = useState([])
@@ -60,6 +61,8 @@ export default function App() {
       const response = await createStudent(newStudent)
 
       if (response) {
+        toast.success('Student has been created')
+
         refreshStudents()
       }
     } else {
@@ -68,6 +71,8 @@ export default function App() {
       const response = await updateStudent(form)
 
       if (response) {
+        toast.success('Student has been updated')
+
         refreshStudents()
       }
     }
@@ -93,6 +98,8 @@ export default function App() {
         const response = await removeStudent(id)
 
         if (response) {
+          toast.error('Student has been deleted')
+
           refreshStudents()
         }
       }
@@ -114,12 +121,10 @@ export default function App() {
     setForm(student)
   }
 
-  const saveStudentInLocalstorage = (students) => {
-    localStorage.setItem('LS_STUDENTS', JSON.stringify(students))
-  }
-
   return (
     <main className="w-96 mx-auto rounded-lg mt-6 p-4">
+      <Toaster position="top-right" richColors />
+
       <h1 className="text-2xl font-semibold text-center mb-3">Student list - CRUD</h1>
 
       <form
