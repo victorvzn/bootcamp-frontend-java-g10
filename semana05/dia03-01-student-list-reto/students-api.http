@@ -1,0 +1,26 @@
+### Get all students
+GET https://687ee83befe65e520087db5d.mockapi.io/api/v1/students
+
+### Get a student
+GET https://687ee83befe65e520087db5d.mockapi.io/api/v1/students/3
+
+### Create a student
+POST https://687ee83befe65e520087db5d.mockapi.io/api/v1/students
+Content-Type: application/json
+
+{
+  "name": "Claudia",
+  "city": "Trujillo"
+}
+
+### Update a student
+PUT https://687ee83befe65e520087db5d.mockapi.io/api/v1/students/3
+Content-Type: application/json
+
+{
+  "name": "Claudia Ventura",
+  "city": "Trujillo 2"
+}
+
+### Delete a student
+DELETE https://687ee83befe65e520087db5d.mockapi.io/api/v1/students/2
