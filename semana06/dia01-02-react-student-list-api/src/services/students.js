@@ -7,3 +7,17 @@ export const fetchStudents = async () => {
 
   return await response.json()
 }
+
+export const createStudent = async (data) => {
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  }
+
+  const response = await fetch(ENDPOINT_STUDENTS, options)
+
+  return await response.json()
+}

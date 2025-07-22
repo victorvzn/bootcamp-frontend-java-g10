@@ -3,7 +3,7 @@ import Avatar from 'boring-avatars'
 import { TbEdit, TbTrash } from 'react-icons/tb'
 import Swal from 'sweetalert2'
 import { useEffect } from "react"
-import { fetchStudents } from "./services/students"
+import { createStudent, fetchStudents } from "./services/students"
 
 export default function App() {
   const [students, setStudents] = useState([])
@@ -36,7 +36,13 @@ export default function App() {
     })
   }
 
-  const handleSave = (event) => {
+  const refreshStudents = async () => {
+    const data = await fetchStudents()
+
+    setStudents(data)
+  }
+
+  const handleSave = async (event) => {
     event.preventDefault();
     
     console.log('Guardando student...')
@@ -45,18 +51,17 @@ export default function App() {
 
     if (isNewStudent) {
       const newStudent = {
-        id: crypto.randomUUID(),
         name: form.name,
         city: form.city
       }
 
-      const updatedStudents = [...students, newStudent]
-
       // TODO: 01 - Enviar una petición para crear un nuevo estudiante
 
-      setStudents(updatedStudents)
+      const response = await createStudent(newStudent)
 
-      saveStudentInLocalstorage(updatedStudents)
+      if (response) {
+        refreshStudents()
+      }
     } else {
       // Update student
       const updatedStudents = students.map(student => {
