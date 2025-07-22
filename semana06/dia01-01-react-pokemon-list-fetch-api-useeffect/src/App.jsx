@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 export default function App() {
-  const [counter, setCounter] = useState(0)
+  const [page, setPage] = useState(1)
   const [pokemons, setPokemons] = useState([])
   // const [counter2, setCounter2] = useState(0)
 
@@ -12,16 +12,20 @@ export default function App() {
     // console.log('Se ejecute la primera vez')
   // }, [counter2])
 
-  const fetchPokemons = async () => {
-    const response = await fetch('https://pokeapi.co/api/v2/pokemon')
+  const fetchPokemons = async (page = 1) => {
+    const limit = 9
+    const offset = (page - 1) * limit
+
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`)
     
     return await response.json()
   }
 
   useEffect(() => {
-    fetchPokemons()
+    console.log('Este useEffect se esta ejecutando cuando el estado page cambia')
+    fetchPokemons(page)
       .then((data) => setPokemons(data.results))
-  }, [])
+  }, [page])
 
   return (
     <>
@@ -38,6 +42,10 @@ export default function App() {
             )
           })}
         </ul>
+
+        <button className="bg-blue-500 p-4" onClick={() => setPage(page + 1)}>
+          Next {page}
+        </button>
 
       </div>
       <pre>{JSON.stringify(pokemons, null, 2)}</pre>
