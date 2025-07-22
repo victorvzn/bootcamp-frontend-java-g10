@@ -3,7 +3,7 @@ import Avatar from 'boring-avatars'
 import { TbEdit, TbTrash } from 'react-icons/tb'
 import Swal from 'sweetalert2'
 import { useEffect } from "react"
-import { createStudent, fetchStudents, removeStudent } from "./services/students"
+import { createStudent, fetchStudents, removeStudent, updateStudent } from "./services/students"
 
 export default function App() {
   const [students, setStudents] = useState([])
@@ -63,24 +63,13 @@ export default function App() {
         refreshStudents()
       }
     } else {
-      // TODO: 03 - Enviar una petición para ACTUALIZAR un nuevo estudiante
+      // TODO: 03 - Enviar una petición para ACTUALIZAR un nuevo estudiante.
 
-      // Update student
-      const updatedStudents = students.map(student => {
-        if (student.id === form.id) {
-          return {
-            ...student,
-            name: form.name,
-            city: form.city,
-          }
-        }
+      const response = await updateStudent(form)
 
-        return student
-      })
-
-      setStudents(updatedStudents)
-
-      saveStudentInLocalstorage(updatedStudents)
+      if (response) {
+        refreshStudents()
+      }
     }
 
     setForm(DEFAULT_FORM)
