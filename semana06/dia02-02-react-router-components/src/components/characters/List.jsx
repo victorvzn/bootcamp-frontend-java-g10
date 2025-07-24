@@ -16,7 +16,7 @@ export default function List() {
     <section>
       {characters.map(character => {
         return (
-          <article>
+          <article key={character.id}>
             <img src={character.image} width={50} />
             <h2>#{character.id} - {character.name}</h2>
             <p>{character.race}</p>
