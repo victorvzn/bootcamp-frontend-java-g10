@@ -1,4 +1,4 @@
-import { Outlet, useNavigate } from "react-router"
+import { Link, Outlet, useNavigate } from "react-router"
 import { useAuth } from "../hooks/useAuth"
 
 export const LayoutAdmin = () => {
@@ -18,10 +18,14 @@ export const LayoutAdmin = () => {
     <>
       <header className="py-4 px-6 bg-amber-300">
         <div className="container mx-auto flex justify-between">
-          <h1 className="font-bold">Product List</h1>
+          <Link to='/home'>
+            <h1 className="font-bold">Product List</h1>
+          </Link>
 
           <div className="flex gap-3">
-          Otros enlaces
+            <Link to='/products'>
+              Products
+            </Link>
           </div>
 
           <div className="flex gap-2">
