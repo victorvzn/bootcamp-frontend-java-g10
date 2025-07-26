@@ -4,9 +4,12 @@ import BaseButton from "../components/ui/BaseButton";
 import { login } from "../services/auth";
 
 import { useNavigate } from 'react-router'
+import { useAuth } from "../hooks/useAuth";
 
 export default function LoginPage() {
   const navigate = useNavigate()
+
+  const { setAuth } = useAuth()
 
   const [form, setForm] = useState({
     username: '',
@@ -27,7 +30,8 @@ export default function LoginPage() {
     const response = await login(username, password)
 
     if (response.success) {
-      console.log(response)
+      console.log('>>>', response)
+      setAuth(response.data)
 
       // Redireccionar a la ruta /home
       navigate('/home')

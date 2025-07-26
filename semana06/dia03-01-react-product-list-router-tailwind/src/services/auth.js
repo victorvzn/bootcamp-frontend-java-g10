@@ -13,8 +13,6 @@ export const login = async (username, password) => {
 
   const response = await fetch(urlResource, options)
 
-  console.log({ response })
-
   return {
     success: response.ok,
     data: await response.json()
