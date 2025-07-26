@@ -13,5 +13,10 @@ export const login = async (username, password) => {
 
   const response = await fetch(urlResource, options)
 
-  return await response.json()
+  console.log({ response })
+
+  return {
+    success: response.ok,
+    data: await response.json()
+  }
 }

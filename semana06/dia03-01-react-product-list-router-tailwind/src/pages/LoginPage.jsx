@@ -26,14 +26,14 @@ export default function LoginPage() {
 
     const response = await login(username, password)
 
-    if (!response.message) {
+    if (response.success) {
       console.log(response)
 
       // Redireccionar a la ruta /home
       navigate('/home')
     } else {
       // TODO: Mostrar una alerta cuando el usuario no se autenticó correctamente
-      console.log(response.message)
+      console.log(response.data)
     }
   }
   
