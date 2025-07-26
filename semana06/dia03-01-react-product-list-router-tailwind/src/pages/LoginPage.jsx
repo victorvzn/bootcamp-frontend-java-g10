@@ -1,7 +1,13 @@
 import { useState } from "react";
 import { BaseInput } from "../components/ui/BaseInput";
+import BaseButton from "../components/ui/BaseButton";
+import { login } from "../services/auth";
+
+import { useNavigate } from 'react-router'
 
 export default function LoginPage() {
+  const navigate = useNavigate()
+
   const [form, setForm] = useState({
     username: '',
     password: '',
@@ -12,6 +18,24 @@ export default function LoginPage() {
 
     setForm({ ...form, [name]: value })
   }
+
+  const handleLogin = async (event) => {
+    event.preventDefault();
+    
+    const { username, password } = form
+
+    const response = await login(username, password)
+
+    if (!response.message) {
+      console.log(response)
+
+      // Redireccionar a la ruta /home
+      navigate('/home')
+    } else {
+      // TODO: Mostrar una alerta cuando el usuario no se autenticó correctamente
+      console.log(response.message)
+    }
+  }
   
   return (
     <main className="w-[500px] m-auto  flex flex-col gap-5 justify-center items-center h-dvh">
@@ -20,7 +44,7 @@ export default function LoginPage() {
 
         <p className="font-light text-center">Ingresa un nombre de usuario y password</p>
 
-        <form>
+        <form onSubmit={handleLogin}>
           <BaseInput
             label='Username'
             name="username"
@@ -30,25 +54,14 @@ export default function LoginPage() {
           <BaseInput
             label='Password'
             name="password"
+            type="password"
             onChange={handleChange}
           />
 
-          {/* <label className="flex flex-col gap-2 mb-4">
-            <span className="font-normal">Password</span>
-            <input
-              className="w-full py-4 px-5 rounded-lg bg-slate-400"
-              type="password"
-              name="password"
-              placeholder=""
-            />
-          </label> */}
-
-          <button
-            className="rounded-full px-5 py-4 font-semibold  w-full bg-blue-700 hover:bg-blue-800 text-white cursor-pointer duration-300"
+          <BaseButton
             type="submit"
-          >
-            Login
-          </button>
+            label="login"
+          />
         </form>
 
         <pre>form state: {JSON.stringify(form, null, 2)}</pre>

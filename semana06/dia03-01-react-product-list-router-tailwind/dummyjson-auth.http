@@ -1,0 +1,15 @@
+### Login
+
+POST https://dummyjson.com/auth/login
+Content-Type: application/json
+credentials: accessToken
+
+{
+  "username": "emilys",
+  "password": "emilyspass",
+  "expiresInMis": 1
+}
+
+### Products
+
+GET https://dummyjson.com/auth/products
