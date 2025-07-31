@@ -5,6 +5,8 @@ import { addToCart } from "../store/cart"
 export default function ProductList({ products }) {
   const dispatch = useDispatch()
 
+  const handleAddToCart = (product) => dispatch(addToCart(product))
+
   return (
     <>
       <section className="flex flex-col p-4">
@@ -20,7 +22,7 @@ export default function ProductList({ products }) {
               <p className="text-center font-bold ">{product.title}</p>
               <button
                 className="bg-blue-400 p-2 min-w-14 rounded-lg cursor-pointer text-white"
-                onClick={() => dispatch(addToCart(product))}
+                onClick={() => handleAddToCart(product)}
               >
                 Add to cart
               </button>
