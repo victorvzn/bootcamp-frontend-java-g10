@@ -1,8 +1,10 @@
 import { formatNumber } from '../utils'
 
+import { useCartStore } from '../store/cart'
+
 export default function ShoppingCart() {
 
-  const cart = []
+  const { cart, removeFromCart, clearCart } = useCartStore()
 
   const total = cart.reduce((acc, product) => {
     const { qty, price} = product
@@ -19,6 +21,7 @@ export default function ShoppingCart() {
       <div className='mb-2'>
         <button
           className='bg-violet-400 p-2 rounded-lg cursor-pointer text-white font-medium w-full'
+          onClick={clearCart}
         >
           Clean cart
         </button>
@@ -34,6 +37,7 @@ export default function ShoppingCart() {
             <span>S/ {product.price} (qty: {product.qty})</span>
             <button
               className='bg-red-400 p-1 rounded-lg cursor-pointer'
+              onClick={() => removeFromCart(product.id)}
             >
               ❌
             </button>
