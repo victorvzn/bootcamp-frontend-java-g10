@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
 
-import { clearCart } from '../store/cart'
+import { clearCart, removeToCart } from '../store/cart'
 
 export default function ShoppingCart() {
   const cart = useSelector(state => state.cart)
@@ -30,6 +30,7 @@ export default function ShoppingCart() {
             <span>S/ {product.price} (qty: {product.qty})</span>
             <button
               className='bg-red-400 p-1 rounded-lg cursor-pointer'
+              onClick={() => dispatch(removeToCart(product.id))}
             >
               ❌
             </button>

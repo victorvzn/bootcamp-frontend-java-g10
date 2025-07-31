@@ -39,7 +39,12 @@ export const cartSlice = createSlice({
         }
       ]
     },
-    // TODO: removeToCart - Remover el producto del carrito de compras
+    removeToCart: (state, action) => {
+      // TODO: removeToCart - Remover el producto del carrito de compras
+      const productId = action.payload
+
+      return state.filter(product => product.id !== productId)
+    },
     clearCart: () => {
       return [] // Estamos devolviendo el nuevo estado del nuestro slice
     }
@@ -48,4 +53,4 @@ export const cartSlice = createSlice({
 
 export default cartSlice.reducer // Expamos el estado inicial y los reducers del slice
 
-export const { addToCart, clearCart } = cartSlice.actions
+export const { addToCart, clearCart, removeToCart } = cartSlice.actions
