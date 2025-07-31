@@ -1,12 +1,26 @@
+import { useEffect, useState } from "react"
 import Counter from "./components/Counter"
+import ProductList from "./components/ProductList"
 
 function App() {
+  const [products, setProducts] = useState([])
+
+  useEffect(() => {
+    fetch('https://dummyjson.com/products')
+      .then(response => response.json())
+      .then(data => setProducts(data.products))
+  }, [])
+
   return (
-    <div>
-      <h1>APP</h1>
+    <main>
+      <section className="flex gap-2">
+        <ProductList products={products} />
+
+        {/* <ShoppingCart /> */}
+      </section>
     
       <Counter />
-    </div>
+    </main>
   )
 }
 
