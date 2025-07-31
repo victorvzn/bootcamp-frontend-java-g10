@@ -1,11 +1,22 @@
 import { useSelector, useDispatch } from 'react-redux'
 
 import { clearCart, removeToCart } from '../store/cart'
+import { formatNumber } from '../utils'
 
 export default function ShoppingCart() {
   const cart = useSelector(state => state.cart)
 
   const dispatch = useDispatch()
+
+  const total = cart.reduce((acc, product) => {
+    // const qty = product.qty
+    // const price = product.price
+    const { qty, price} = product
+
+    const subtotal = price * qty
+
+    return acc + subtotal
+  }, 0)
 
   return (
     <section className='w-56'>
@@ -39,7 +50,7 @@ export default function ShoppingCart() {
       </ul>
 
       <div className='mt-4 pt-4 font-bold bg-amber-100 px-4 py-2 flex justify-between'>
-        <strong>TOTAL:</strong> <span>S/ 0.00</span>
+        <strong>TOTAL:</strong> <span>S/ {formatNumber(total)}</span>
       </div>
 
       <pre>{JSON.stringify(cart, null, 2)}</pre>
